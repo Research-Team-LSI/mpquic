@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Api\MobileController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\RoundRobinController;
+use App\Http\Controllers\RoundRobinPytonController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +20,10 @@ Route::controller(DeviceController::class)->prefix('/device')->group(function ()
     Route::post('/temperature', [DeviceController::class, 'temperature']);
     Route::post('/humidity', [DeviceController::class, 'humidity']);
 });
+Route::get('/test', function () {
+    return response()->json(['message' => 'API bekerja!']);
+});
+Route::get('/round-robin', [RoundRobinController::class, 'roundRobin']);
+
+// Route::post('/roundrobin', [RoundRobinPyton::class, 'calculate']);
+Route::get('/fetch-round-robin', [RoundRobinPytonController::class, 'fetchData']);
