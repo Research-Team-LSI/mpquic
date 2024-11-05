@@ -106,7 +106,7 @@
                                                 12.203.0239.20.1
                                             </td>
                                             <td class="px-6 py-4">
-                                                <a href="#">
+                                                <a href="/info">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                         height="24" fill="none" viewBox="0 0 24 24">
                                                         <path stroke="currentColor" stroke-linecap="round"
@@ -132,7 +132,7 @@
                                                 12.203.0239.20.1
                                             </td>
                                             <td class="px-6 py-4">
-                                                <a href="#">
+                                                <a href="/info">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                         height="24" fill="none" viewBox="0 0 24 24">
                                                         <path stroke="currentColor" stroke-linecap="round"
@@ -158,7 +158,7 @@
                                                 12.203.0239.20.1
                                             </td>
                                             <td class="px-6 py-4">
-                                                <a href="#">
+                                                <a href="/info">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                         height="24" fill="none" viewBox="0 0 24 24">
                                                         <path stroke="currentColor" stroke-linecap="round"
@@ -184,7 +184,7 @@
                                                 12.203.0239.20.1
                                             </td>
                                             <td class="px-6 py-4">
-                                                <a href="#">
+                                                <a href="/info">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                         height="24" fill="none" viewBox="0 0 24 24">
                                                         <path stroke="currentColor" stroke-linecap="round"
@@ -210,7 +210,7 @@
                                                 12.203.0239.20.1
                                             </td>
                                             <td class="px-6 py-4">
-                                                <a href="#">
+                                                <a href="/info">
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                         height="24" fill="none" viewBox="0 0 24 24">
                                                         <path stroke="currentColor" stroke-linecap="round"

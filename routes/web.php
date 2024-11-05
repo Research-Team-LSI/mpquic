@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 use Maatwebsite\Excel\Facades\Excel;
 
 Route::view('/', 'welcome');
+Route::get('/info', function () {
+    return view('info');
+})->name('info');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [ChartsController::class, 'index'])->name('dashboard');
@@ -30,6 +33,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('blog', 'blog')->name('blog');
     Route::view('addblog', 'addblog')->name('addblog');
     Route::view('profile', 'profile')->name('profile');
+
 
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {
         Route::get('riwayat-temperature', 'riwayatTemperature')->name('riwayat.temperature');

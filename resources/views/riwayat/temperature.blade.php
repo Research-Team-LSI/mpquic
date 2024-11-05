@@ -196,6 +196,15 @@
                     </div>
 
                 </div>
+
+                {{-- Card --}}
+                <div class="flex items-start justify-start min-h-screen" >
+                    <div class="shadow-lg rounded-lg w-96 p-6" style="background-color: #001D3D">
+                        <h3 class="text-center text-lg font-normal text-white">Suhu Optimal</h3>
+                        <p class="text-center text-white pt-2">25 C - 35 C</p>
+                        <p class="text-center text-white font-thin pt-2">*celcius</p>
+                    </div>
+                </div>
             </main>
             <footer class="bg-white border-t border-gray-200 p-4 shadow-md mt-auto">
                 <div class="flex items-center justify-center">
