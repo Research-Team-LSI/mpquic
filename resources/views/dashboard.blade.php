@@ -103,7 +103,7 @@
                                                 00-B0-D0-63-C2-26
                                             </td>
                                             <td class="px-6 py-4">
-                                                12.203.0239.20.1
+                                                192.164.001.001
                                             </td>
                                             <td class="px-6 py-4">
                                                 <a href="/info">
@@ -129,7 +129,7 @@
                                                 00-B0-D0-63-C2-26
                                             </td>
                                             <td class="px-6 py-4">
-                                                12.203.0239.20.1
+                                                192.164.001.001
                                             </td>
                                             <td class="px-6 py-4">
                                                 <a href="/info">
@@ -155,7 +155,7 @@
                                                 00-B0-D0-63-C2-26
                                             </td>
                                             <td class="px-6 py-4">
-                                                12.203.0239.20.1
+                                                192.164.001.001
                                             </td>
                                             <td class="px-6 py-4">
                                                 <a href="/info">
@@ -181,7 +181,7 @@
                                                 00-B0-D0-63-C2-26
                                             </td>
                                             <td class="px-6 py-4">
-                                                12.203.0239.20.1
+                                                192.164.001.001
                                             </td>
                                             <td class="px-6 py-4">
                                                 <a href="/info">
@@ -207,7 +207,7 @@
                                                 00-B0-D0-63-C2-26
                                             </td>
                                             <td class="px-6 py-4">
-                                                12.203.0239.20.1
+                                                192.164.001.001
                                             </td>
                                             <td class="px-6 py-4">
                                                 <a href="/info">
@@ -285,7 +285,7 @@
                                                             IP Address</label>
                                                         <input type="text" name="ipaddress" id="ipaddress"
                                                             class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                            placeholder="contoh: 12.203.0239.20.1" required="">
+                                                            placeholder="contoh: 192.164.001.001" required="">
                                                     </div>
                                                 </div>
                                                 <button type="submit"

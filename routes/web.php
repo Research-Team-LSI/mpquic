@@ -16,6 +16,14 @@ Route::get('/info', function () {
     return view('info');
 })->name('info');
 
+Route::get('/http', function () {
+    return view('http');
+})->name('http');
+
+Route::get('/mpquic', function () {
+    return view('mpquic');
+})->name('mpquic');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [ChartsController::class, 'index'])->name('dashboard');
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {
