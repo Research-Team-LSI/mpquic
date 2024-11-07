@@ -295,14 +295,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="gap-4">
+                    {{-- <div class="gap-4">
                         <div class="bg-white shadow-lg rounded-lg mb-4">
                             <div
                                 class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
                                 <h6 class="m-0 font-semibold text-gray-700">Analisis Data</h6>
 
-                            </div>
-                            <div class="px-8 py-8">
+                            </div> --}}
+                            {{-- <div class="px-8 py-8">
                                 <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                                     <table
                                         class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -375,9 +375,9 @@
                                             </td>
                                         </tr>
                                         </tbody>
-                                    </table>
+                                    </table> --}}
 
-                                    <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4 pb-4 ml-8 mr-5"
+                                    {{-- <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4 pb-4 ml-8 mr-5"
                                         aria-label="Table navigation">
                                         <span
                                             class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing
@@ -414,7 +414,7 @@
                                                     class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
                                             </li>
                                         </ul>
-                                    </nav>
+                                    </nav> --}}
                                 </div>
                             </div>
                         </div>
