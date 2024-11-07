@@ -10,14 +10,44 @@
                 <div class="ml-2">
                     <span
                         class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">MP QUIC</span>
-                    {{-- <span
-                        class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">MULTIFARM</span> --}}
                 </div>
             </div>
         </a>
     </div>
     <nav class="px-2 py-2">
         <ul class="space-y-2 font-medium">
+            {{-- Analisis --}}
+            <li>
+                <a type="button"
+                    class="flex items-center block py-2 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200"
+                    aria-controls="dropdown-analisis" data-collapse-toggle="dropdown-analisis">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path
+                            d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1" />
+                    </svg>
+                    Analisis Data<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 4 4 4-4" />
+                    </svg>
+                </a>
+                <ul id="dropdown-analisis" class="hidden">
+                    <li>
+                        <a href="{{ route('http') }}"
+                            class="flex items-center block mx-2 py-1 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
+                            Http
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('mpquic') }}"
+                            class="flex items-center block mx-2 py-1 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
+                            MP QUIC
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
             <li>
                 <a href="{{ route('dashboard') }}"
                     class="flex items-center block py-2 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
@@ -61,75 +91,9 @@
                             Humidity
                         </a>
                     </li>
-                    {{-- <li>
-                        <a href="{{ route('riwayat.amonia') }}"
-                            class="flex items-center block mx-2 py-1 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                           Amonia
-                        </a>
-                    </li> --}}
-                    {{-- <li>
-                        <a href="{{ route('riwayat.metana') }}"
-                            class="flex items-center block mx-2 py-1 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                           Metana
-                        </a>
-                    </li> --}}
-                    {{-- <li>
-                        <a href="{{ route('riwayat.dioksida') }}"
-                            class="flex items-center block mx-2 py-1 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                           Karbon Dioksida
-                        </a>
-                    </li> --}}
+                    
                 </ul>
             </li>
-
-            {{-- Analisis --}}
-            <li>
-                <a type="button"
-                    class="flex items-center block py-2 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200"
-                    aria-controls="dropdown-analisis" data-collapse-toggle="dropdown-analisis">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
-                        fill="currentColor">
-                        <path
-                            d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1" />
-                    </svg>
-                    Analisis Data<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 1 4 4 4-4" />
-                    </svg>
-                </a>
-                <ul id="dropdown-analisis" class="hidden">
-                    <li>
-                        <a href="{{ route('http') }}"
-                            class="flex items-center block mx-2 py-1 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                            Http
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('mpquic') }}"
-                            class="flex items-center block mx-2 py-1 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                            MP QUIC
-                        </a>
-                    </li>
-
-                </ul>
-            </li>
-
-            @if (Auth::user()->role == 'admin')
-            <li>
-                <a href="{{ route('karyawan') }}"
-                    class="flex items-center block py-2 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
-                        fill="currentColor">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                        <path
-                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z" />
-                    </svg>
-                    Data Karyawan
-                </a>
-            </li>
-            @else
-            @endif
             {{-- <li>
                 <a href="{{ route('blog') }}"
                     class="flex items-center block py-2 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">

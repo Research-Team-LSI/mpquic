@@ -1,13 +1,9 @@
 <header class="bg-white border-b border-gray-200 p-4 shadow-lg">
     <div class="flex justify-between items-center">
-        <!-- Monitoring text with vertical divider -->
         <div class="flex items-center">
             <div class="text-lg font-semibold text-gray-800 mr-2"></div>
         </div>
-
-        <!-- Divider between sections -->
         <div class="flex-grow border-l border-gray-200 mx-4"></div>
-
         <div class="relative flex items-center">
             <div class="border-l border-gray-300 h-6 mr-6"></div>
             <div>
@@ -20,7 +16,8 @@
                 class="origin-top-right absolute right-0 mt-40 w-48 bg-white border border-gray-200 rounded-md shadow-lg py-1 hidden">
                 <a href="{{ route('profile') }}"
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
-                {{-- <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a> --}}
+                {{-- <a href="#"
+                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a> --}}
                 @livewire('components.logout-button')
             </div>
         </div>
