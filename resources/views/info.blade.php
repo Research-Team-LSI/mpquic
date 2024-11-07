@@ -54,9 +54,87 @@
                 <div class="gap-4">
                     <div class="bg-white shadow-lg rounded-lg mb-4">
                         <div class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
-                            <h6 class="m-0 font-semibold text-gray-700">Monitoring</h6>
+                            <h6 class="m-0 font-semibold text-gray-700">Dashboard</h6>
 
                         </div>
+
+                        <div class="grid grid-cols-3 gap-4">
+                            <div class="col-span-1">
+                                <div class="py-4">
+                                    <div
+                                        class="bg-blue-950 h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
+                                        <div class="flex justify-between w-full my-6 items-center">
+                                            <p class="text-white text-sm font-bold">Temperature (°C)</p>
+                                            <div class="flex items-center">
+                                                <div id="colorIndicatorTemperature"
+                                                    class="w-3 h-3 rounded-full mr-2">
+                                                </div>
+                                                <p class="text-white text-sm" id="percentageValueTemperature"></p>
+                                            </div>
+                                        </div>
+                                        <p class="text-white text-5xl font-extrabold pb-2">32</p>
+
+
+                                        {{-- <div class="progress-container">
+                                            <div id="progressFillTemperature" class="progress-bar-fill"></div>
+                                            <div id="progressNeedleTemperature" class="progress-needle"></div>
+                                        </div>
+
+                                        <div class="flex justify-between w-full mb-6">
+                                            <p class="text-white text-sm">Buruk</p>
+                                            <p class="text-white text-sm">Baik</p>
+                                        </div> --}}
+
+                                        <p class="text-white text-sm">Temperature (°C)</p>
+                                        <p class="text-white text-sm">Saat ini</p>
+                                        <div id="latestValueTemperature"
+                                            class="text-white text-5xl font-bold mb-4">
+                                        </div>
+                                        <p id="lastUpdatedTemperature" class="text-white text-sm"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-1">
+                                <div class="py-4">
+                                    <div class="h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center"
+                                        style="background-color: #FCA311">
+                                        <div class="flex justify-between w-full my-6 items-center">
+                                            <p class="text-white text-sm font-bold">Humidity (%)</p>
+                                            <div class="flex items-center">
+                                                <div id="colorIndicatorTemperature"
+                                                    class="w-3 h-3 rounded-full mr-2">
+                                                </div>
+                                                <p class="text-white text-sm" id="percentageValueTemperature"></p>
+                                            </div>
+                                        </div>
+
+                                        <p class="text-white text-5xl font-extrabold pb-2">50</p>
+
+
+                                        {{-- <div class="progress-container">
+                                            <div id="progressFillTemperature" class="progress-bar-fill"></div>
+                                            <div id="progressNeedleTemperature" class="progress-needle"></div>
+                                        </div> --}}
+
+                                        {{-- <div class="flex justify-between w-full mb-6">
+                                            <p class="text-white text-sm">Buruk</p>
+                                            <p class="text-white text-sm">Baik</p>
+                                        </div> --}}
+
+                                        <p class="text-white text-sm">Humadity (%)</p>
+                                        <p class="text-white text-sm">Saat ini</p>
+                                        <div id="latestValueTemperature"
+                                            class="text-white text-5xl font-bold mb-4">
+                                        </div>
+                                        <p id="lastUpdatedTemperature" class="text-white text-sm"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
                         <div class="px-8 py-8">
                             <div class="grid gap-4 grid-cols-1">
                                 <div class="w-full bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
@@ -65,7 +143,7 @@
                                             <div>
                                                 <h5
                                                     class="inline-flex items-center text-gray-500 dark:text-gray-400 leading-none font-normal mb-2 ">
-                                                    Humidity
+                                                    HTTP
                                                     <svg data-popover-target="clicks-info"
                                                         data-popover-placement="bottom"
                                                         class="w-3 h-3 text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer ms-1"
@@ -78,7 +156,7 @@
                                                         class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
                                                         <div class="p-3 space-y-2">
                                                             <h3 class="font-semibold text-gray-900 dark:text-white">
-                                                                Humidity
+                                                                HTTP
                                                                 growth - Incremental</h3>
                                                             <p>Report helps navigate cumulative growth of community
                                                                 activities. Ideally, the chart should have a growing
@@ -109,13 +187,13 @@
                                                     </div>
                                                 </h5>
                                                 <p
-                                                    class="text-gray-900 dark:text-white text-2xl leading-none font-bold">
-                                                    43%</p>
+                                                    class="text-gray-900 dark:text-white text-xl leading-none font-semibold">
+                                                    1000 bps</p>
                                             </div>
                                             <div>
                                                 <h5
                                                     class="inline-flex items-center text-gray-500 dark:text-gray-400 leading-none font-normal mb-2">
-                                                    Temperature
+                                                    MP QUIC
                                                     <svg data-popover-target="cpc-info" data-popover-placement="bottom"
                                                         class="w-3 h-3 text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer ms-1"
                                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +205,7 @@
                                                         class="absolute z-10 invisible inline-block text-sm text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-400">
                                                         <div class="p-3 space-y-2">
                                                             <h3 class="font-semibold text-gray-900 dark:text-white">
-                                                                Temperature
+                                                                MP QUIC
                                                                 growth - Incremental</h3>
                                                             <p>Report helps navigate cumulative growth of community
                                                                 activities. Ideally, the chart should have a growing
@@ -158,8 +236,8 @@
                                                     </div>
                                                 </h5>
                                                 <p
-                                                    class="text-gray-900 dark:text-white text-2xl leading-none font-bold">
-                                                    32°C</p>
+                                                    class="text-gray-900 dark:text-white text-xl leading-none font-semibold">
+                                                    1000 bps</p>
                                             </div>
                                         </div>
                                         <div>
@@ -204,7 +282,7 @@
                                         </div>
                                     </div>
                                     <div id="line-chart"></div>
-                                    <div
+                                    {{-- <div
                                         class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between mt-2.5">
                                         <div class="pt-5">
                                             <a href="#"
@@ -220,82 +298,136 @@
                                                 View full report
                                             </a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
 
 
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="col-span-1">
-                                    <div class="py-4">
-                                        <div
-                                            class="bg-blue-950 h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
-                                            <div class="flex justify-between w-full my-6 items-center">
-                                                <p class="text-white text-sm font-bold">Temperature (°C)</p>
-                                                <div class="flex items-center">
-                                                    <div id="colorIndicatorTemperature"
-                                                        class="w-3 h-3 rounded-full mr-2">
-                                                    </div>
-                                                    <p class="text-white text-sm" id="percentageValueTemperature"></p>
-                                                </div>
-                                            </div>
 
-                                            <div class="progress-container">
-                                                <div id="progressFillTemperature" class="progress-bar-fill"></div>
-                                                <div id="progressNeedleTemperature" class="progress-needle"></div>
-                                            </div>
+                        </div>
 
-                                            <div class="flex justify-between w-full mb-6">
-                                                <p class="text-white text-sm">Buruk</p>
-                                                <p class="text-white text-sm">Baik</p>
-                                            </div>
+                        <div class="gap-4">
+                            <div class="bg-white shadow-lg rounded-lg mb-4">
+                                <div class="px-8 py-8">
+                                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                                        <table
+                                            class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            <thead
+                                                class="text-xs text-white uppercase bg-yellow-300 dark:bg-gray-700 dark:text-gray-400">
+                                                <tr>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Id
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Microcontroller
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Protocol Type
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Delivery Time
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Receiving Time
+                                                    </th>
+                                                    <th scope="col" class="px-6 py-3">
+                                                        Delay Time
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr
+                                                    class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                    <th scope="row"
+                                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        101
+                                                    </th>
+                                                    <td class="px-6 py-4">
+                                                        ESP32-321231
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        MP QUIC
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        10.00.10
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        10.01.00
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        00.00.50
+                                                    </td>
+                                                </tr>
+                                                <tr
+                                                    class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                    <th scope="row"
+                                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        101
+                                                    </th>
+                                                    <td class="px-6 py-4">
+                                                        ESP32-321231
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        HTTP
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        10.10.00
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        10.11.00
+                                                    </td>
+                                                    <td class="px-6 py-4">
+                                                        00.01.00
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
 
-                                            <p class="text-white text-sm">Temperature (°C)</p>
-                                            <p class="text-white text-sm">Saat ini</p>
-                                            <div id="latestValueTemperature"
-                                                class="text-white text-5xl font-bold mb-4">
-                                            </div>
-                                            <p id="lastUpdatedTemperature" class="text-white text-sm"></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-span-1">
-                                    <div class="py-4">
-                                        <div class="h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center"
-                                            style="background-color: #FCA311">
-                                            <div class="flex justify-between w-full my-6 items-center">
-                                                <p class="text-white text-sm font-bold">Humidity (%)</p>
-                                                <div class="flex items-center">
-                                                    <div id="colorIndicatorTemperature"
-                                                        class="w-3 h-3 rounded-full mr-2">
-                                                    </div>
-                                                    <p class="text-white text-sm" id="percentageValueTemperature"></p>
-                                                </div>
-                                            </div>
-
-                                            <div class="progress-container">
-                                                <div id="progressFillTemperature" class="progress-bar-fill"></div>
-                                                <div id="progressNeedleTemperature" class="progress-needle"></div>
-                                            </div>
-
-                                            <div class="flex justify-between w-full mb-6">
-                                                <p class="text-white text-sm">Buruk</p>
-                                                <p class="text-white text-sm">Baik</p>
-                                            </div>
-
-                                            <p class="text-white text-sm">Humadity (%)</p>
-                                            <p class="text-white text-sm">Saat ini</p>
-                                            <div id="latestValueTemperature"
-                                                class="text-white text-5xl font-bold mb-4">
-                                            </div>
-                                            <p id="lastUpdatedTemperature" class="text-white text-sm"></p>
-                                        </div>
+                                        <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4 pb-4 ml-8 mr-5"
+                                            aria-label="Table navigation">
+                                            <span
+                                                class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing
+                                                <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of
+                                                <span class="font-semibold text-gray-900 dark:text-white">1000</span></span>
+                                            <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
+                                                <li>
+                                                    <a href="#"
+                                                        class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"
+                                                        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"
+                                                        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" aria-current="page"
+                                                        class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"
+                                                        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"
+                                                        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"
+                                                        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
-                    
+
                                 </div>
                             </div>
                         </div>
@@ -352,14 +484,14 @@
                 },
             },
             series: [{
-                    name: "Humidity",
+                    name: "HTTP",
                     data: [6500, 6418, 6456, 6526, 6356, 6456],
-                    color: "#1A56DB",
+                    color: "#001D3D",
                 },
                 {
-                    name: "Temperature",
+                    name: "MP QUIC",
                     data: [6456, 6356, 6526, 6332, 6418, 6500],
-                    color: "#7E3AF2",
+                    color: "#FCA311",
                 },
             ],
             legend: {

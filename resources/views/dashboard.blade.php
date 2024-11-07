@@ -68,7 +68,7 @@
                         <div class="px-8 py-8">
 
                             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                {{-- <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                     <thead
                                         class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400" style="background-color: #FCA311">
                                         <tr>
@@ -221,7 +221,8 @@
                                             </td>
                                         </tr>
                                     </tbody>
-                                </table>
+                                </table> --}}
+                                
 
 
                                 <!-- Modal toggle -->

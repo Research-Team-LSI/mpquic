@@ -10,7 +10,7 @@
                 <span class="block text-xs text-gray-600">{{ Auth::user()->name }}</span>
             </div>
             <button onclick="toggleDropdown(event)" class="flex items-center focus:outline-none ml-2">
-                <img src="https://via.placeholder.com/40" alt="Profile" class="w-8 h-8 rounded-full">
+                <img src="{{ asset('images/profile/profile.png') }}" alt="Profile" class="w-8 h-8 rounded-full">
             </button>
             <div id="profileDropdown"
                 class="origin-top-right absolute right-0 mt-40 w-48 bg-white border border-gray-200 rounded-md shadow-lg py-1 hidden">

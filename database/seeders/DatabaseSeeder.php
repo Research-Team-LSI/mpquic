@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
         // User::factory(100)->create();
 
         User::factory()->create([
-            'name' => 'Gumukmas Admin',
+            'name' => 'MP QUIC Admin',
             'email' => 'admin@gmail.com',
             'password' => '12345678',
-            'address' => 'jl. Sultan Agung No.42, Dusun Krajan, Purwosari, Gumukmas, Jember',
+            'address' => 'Jl. Mastrip No. 164 Jember',
         ]);
     }
 }
