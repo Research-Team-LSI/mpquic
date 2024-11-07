@@ -8,8 +8,8 @@
                         class="inline h-5 w-8 transition-all duration-200 ease-nav-brand" alt="main_logo" />
                 </div>
                 <div class="ml-2">
-                    <span
-                        class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">MP QUIC</span>
+                    <span class="block font-semibold text-lwhite transition-all text-body duration-200 mr-4">MP
+                        QUIC</span>
                 </div>
             </div>
         </a>
@@ -17,8 +17,8 @@
     <nav class="px-2 py-2">
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="{{ route('info') }}"
-                    class="flex items-center block py-2 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
+                <a href="{{ route('dashboard') }}"
+                    class="flex items-center py-2 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
                         fill="currentColor">
                         <path
@@ -36,10 +36,10 @@
                 <a type="button"
                     class="flex items-center block py-2 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200"
                     aria-controls="dropdown-analisis" data-collapse-toggle="dropdown-analisis">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20"
-                        fill="currentColor">
+                    <svg fill="#ffffff" class="h-5 w-5 mr-2" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">
                         <path
-                            d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1" />
+                            d="M15,17a1,1,0,1,0,1,1A1,1,0,0,0,15,17ZM9,17H6a1,1,0,0,0,0,2H9a1,1,0,0,0,0-2Zm9,0a1,1,0,1,0,1,1A1,1,0,0,0,18,17Zm-3-6a1,1,0,1,0,1,1A1,1,0,0,0,15,11ZM9,11H6a1,1,0,0,0,0,2H9a1,1,0,0,0,0-2Zm9-6a1,1,0,1,0,1,1A1,1,0,0,0,18,5Zm0,6a1,1,0,1,0,1,1A1,1,0,0,0,18,11Zm4-6a3,3,0,0,0-3-3H5A3,3,0,0,0,2,5V7a3,3,0,0,0,.78,2A3,3,0,0,0,2,11v2a3,3,0,0,0,.78,2A3,3,0,0,0,2,17v2a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V17a3,3,0,0,0-.78-2A3,3,0,0,0,22,13V11a3,3,0,0,0-.78-2A3,3,0,0,0,22,7ZM20,19a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V17a1,1,0,0,1,1-1H19a1,1,0,0,1,1,1Zm0-6a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V11a1,1,0,0,1,1-1H19a1,1,0,0,1,1,1Zm0-6a1,1,0,0,1-1,1H5A1,1,0,0,1,4,7V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1ZM15,5a1,1,0,1,0,1,1A1,1,0,0,0,15,5ZM9,5H6A1,1,0,0,0,6,7H9A1,1,0,0,0,9,5Z" />
                     </svg>
                     Analisis Data<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 10 6">

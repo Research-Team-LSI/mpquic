@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Route;
 use Maatwebsite\Excel\Facades\Excel;
 
 Route::view('/', 'welcome');
-Route::get('/info', function () {
-    return view('info');
-})->name('info');
+Route::get('/dashboard1', function () {
+    return view('dashboard1');
+})->name('dashboard1');
 
 Route::get('/http', function () {
     return view('http');

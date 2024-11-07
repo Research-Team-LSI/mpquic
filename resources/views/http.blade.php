@@ -204,7 +204,7 @@
                                         </div>
                                     </div>
                                     <div id="line-chart"></div>
-                                    <div
+                                    {{-- <div
                                         class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between mt-2.5">
                                         <div class="pt-5">
                                             <a href="#"
@@ -220,7 +220,7 @@
                                                 View full report
                                             </a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -243,19 +243,22 @@
                                                 Id
                                             </th>
                                             <th scope="col" class="px-6 py-3">
+                                                Jenis Protokol
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
                                                 Microcontroller
                                             </th>
                                             <th scope="col" class="px-6 py-3">
-                                                Protocol Type
+                                                Mac Address
                                             </th>
                                             <th scope="col" class="px-6 py-3">
-                                                Delivery Time
+                                                IP Address
                                             </th>
                                             <th scope="col" class="px-6 py-3">
-                                                Receiving Time
+                                                Throughput
                                             </th>
                                             <th scope="col" class="px-6 py-3">
-                                                Delay Time
+                                                Latency
                                             </th>
                                         </tr>
                                     </thead>
@@ -270,7 +273,7 @@
                                                 ESP32-321231
                                             </td>
                                             <td class="px-6 py-4">
-                                                MP QUIC
+                                                HTTP
                                             </td>
                                             <td class="px-6 py-4">
                                                 10.00.10
@@ -281,12 +284,15 @@
                                             <td class="px-6 py-4">
                                                 00.00.50
                                             </td>
+                                            <td class="px-6 py-4">
+                                                00.00.50
+                                            </td>
                                         </tr>
                                         <tr
                                             class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                                             <th scope="row"
                                                 class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                101
+                                                102
                                             </th>
                                             <td class="px-6 py-4">
                                                 ESP32-321231
@@ -302,6 +308,9 @@
                                             </td>
                                             <td class="px-6 py-4">
                                                 00.01.00
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                00.00.50
                                             </td>
                                         </tr>
                                     </tbody>
