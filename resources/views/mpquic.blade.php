@@ -237,7 +237,7 @@
                                 <table
                                     class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                     <thead
-                                        class="text-xs text-white uppercase bg-yellow-300 dark:bg-gray-700 dark:text-gray-400">
+                                        class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400" style="background-color: #001D3D>
                                         <tr>
                                             <th scope="col" class="px-6 py-3">
                                                 Id
@@ -411,7 +411,7 @@
             series: [{
                     name: "Humidity",
                     data: [6500, 6418, 6456, 6526, 6356, 6456],
-                    color: "#1A56DB",
+                    color: "#FCA311",
                 },
                 //{
                     //name: "Temperature",
