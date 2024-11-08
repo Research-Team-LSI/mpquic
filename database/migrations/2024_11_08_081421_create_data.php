@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dioksida', function (Blueprint $table) {
-            $table->id('id_dioksida');
+        Schema::create('data', function (Blueprint $table) {
+            $table->id('id_data');
             $table->unsignedInteger('id_alat')->length(3);
-            $table->float('nilai_dioksida', 8, 3);
+            $table->float('throughput', 8, 3);
+            $table->float('latency', 8, 3);
             $table->timestamps();
             $table->foreign('id_alat')->references('id_alat')->on('alat')->onDelete('cascade');
         });
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dioksida');
+        Schema::dropIfExists('data');
     }
 };

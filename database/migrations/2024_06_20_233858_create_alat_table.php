@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('alat', function (Blueprint $table) {
             $table->integer('id_alat')->unsigned()->length(3)->primary();
-            $table->string('uuid', 255);
-            $table->string('nama', 255);
-            $table->float('latitude', 10, 6);
-            $table->float('longitude', 10, 6);
+            $table->enum('protocol', ['http', 'mpquic']);
+            $table->enum('microcontroller', ['esp32', 'esp8266', 'raspberrypi']);
+            $table->string('mac_address', 20);
+            $table->string('ip_address', 16);
             $table->timestamps();
         });
     }
