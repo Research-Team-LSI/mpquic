@@ -15,12 +15,12 @@ class AlatController extends Controller
     }
     public function http()
     {
-        $alat = Alat::where('protocol', 'http')->get();
+        $alat = Alat::where('protocol', 'http')->paginate(5);
         return view('http', compact('alat'));
     }
     public function mpquic()
     {
-        $alat = Alat::where('protocol', 'mpquic')->get();
+        $alat = Alat::where('protocol', 'mpquic')->paginate(5);
         return view('mpquic', compact('alat'));
     }
 
