@@ -17,9 +17,9 @@ Route::get('/dashboard1', function () {
     return view('dashboard1');
 })->name('dashboard1');
 
-Route::get('/http', function () {
-    return view('http');
-})->name('http');
+// Route::get('/http', function () {
+//     return view('http');
+// })->name('http');
 
 Route::get('/mpquic', function () {
     return view('mpquic');
@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [ChartsController::class, 'index'])->name('dashboard');
     Route::get('dashboard', [AlatController::class, 'index'])->name('dashboard');
     Route::post('dashboard', [AlatController::class, 'store'])->name('alat.store');
+    Route::get('http', [AlatController::class, 'http'])->name('http');
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {
         Route::view('detail/1', 'dashboard/detaildashboard1')->name('detail.dashboard1');
         Route::view('detail/2', 'dashboard/detaildashboard2')->name('detail.dashboard2');

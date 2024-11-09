@@ -13,6 +13,12 @@ class AlatController extends Controller
         $alat = Alat::all();
         return view('dashboard', compact('alat'));
     }
+    public function http()
+    {
+        $alat = Alat::where('protocol', 'http')->get();
+        return view('http', compact('alat'));
+    }
+    
 
     // Menampilkan form tambah alat
     // public function create()

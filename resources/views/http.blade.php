@@ -226,15 +226,15 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="gap-4">
                     <div class="bg-white shadow-lg rounded-lg mb-4">
                         <div class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
                             <h6 class="m-0 font-semibold text-gray-700">Analisis Data</h6>
-
                         </div>
                         <div class="px-8 py-8">
                             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                {{-- <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                     <thead class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400"
                                         style="background-color: #001D3D">
                                         <tr>
@@ -287,31 +287,39 @@
                                                 00.00.50
                                             </td>
                                         </tr>
-                                        <tr
-                                            class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                            <th scope="row"
-                                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                102
-                                            </th>
-                                            <td class="px-6 py-4">
-                                                ESP32-321231
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                HTTP
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                10.10.00
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                10.11.00
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                00.01.00
-                                            </td>
-                                            <td class="px-6 py-4">
-                                                00.00.50
-                                            </td>
+                                    </tbody>
+                                </table> --}}
+
+                                {{-- ini tabel baru --}}
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400"
+                                        style="background-color: #FCA311">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3">ID</th>
+                                            <th scope="col" class="px-6 py-3">Jenis Protokol</th>
+                                            <th scope="col" class="px-6 py-3">Microcontroller</th>
+                                            <th scope="col" class="px-6 py-3">MAC Address</th>
+                                            <th scope="col" class="px-6 py-3">IP Address</th>
+                                            <th scope="col" class="px-6 py-3">Throughput</th>
+                                            <th scope="col" class="px-6 py-3">Latency</th>
                                         </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($alat as $item)
+                                            <tr
+                                                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                <th scope="row"
+                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $item->id_alat }}
+                                                </th>
+                                                <td class="px-6 py-4">{{ $item->protocol }}</td>
+                                                <td class="px-6 py-4">{{ $item->microcontroller }}</td>
+                                                <td class="px-6 py-4">{{ $item->mac_address }}</td>
+                                                <td class="px-6 py-4">{{ $item->ip_address }}</td>
+                                                <td class="px-6 py-4">{{ $item->throughput ?? 'N/A' }}</td>
+                                                <td class="px-6 py-4">{{ $item->latency ?? 'N/A' }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
 
