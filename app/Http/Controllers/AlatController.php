@@ -18,7 +18,12 @@ class AlatController extends Controller
         $alat = Alat::where('protocol', 'http')->get();
         return view('http', compact('alat'));
     }
-    
+    public function mpquic()
+    {
+        $alat = Alat::where('protocol', 'mpquic')->get();
+        return view('mpquic', compact('alat'));
+    }
+
 
     // Menampilkan form tambah alat
     // public function create()

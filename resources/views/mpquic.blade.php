@@ -234,10 +234,9 @@
                         </div>
                         <div class="px-8 py-8">
                             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                <table
-                                    class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    <thead
-                                        class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400" style="background-color: #001D3D>
+                                {{-- <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400"
+                                        style="background-color: #001D3D">
                                         <tr>
                                             <th scope="col" class="px-6 py-3">
                                                 Id
@@ -313,6 +312,39 @@
                                                 00.00.50
                                             </td>
                                         </tr>
+                                    </tbody>
+                                </table> --}}
+
+                                {{-- ini tabel --}}
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400"
+                                        style="background-color: #FCA311">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3">ID</th>
+                                            <th scope="col" class="px-6 py-3">Jenis Protokol</th>
+                                            <th scope="col" class="px-6 py-3">Microcontroller</th>
+                                            <th scope="col" class="px-6 py-3">MAC Address</th>
+                                            <th scope="col" class="px-6 py-3">IP Address</th>
+                                            <th scope="col" class="px-6 py-3">Throughput</th>
+                                            <th scope="col" class="px-6 py-3">Latency</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($alat as $item)
+                                            <tr
+                                                class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                <th scope="row"
+                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                    {{ $item->id_alat }}
+                                                </th>
+                                                <td class="px-6 py-4">{{ $item->protocol }}</td>
+                                                <td class="px-6 py-4">{{ $item->microcontroller }}</td>
+                                                <td class="px-6 py-4">{{ $item->mac_address }}</td>
+                                                <td class="px-6 py-4">{{ $item->ip_address }}</td>
+                                                <td class="px-6 py-4">{{ $item->throughput ?? 'N/A' }}</td>
+                                                <td class="px-6 py-4">{{ $item->latency ?? 'N/A' }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
 
@@ -414,9 +446,9 @@
                     color: "#FCA311",
                 },
                 //{
-                    //name: "Temperature",
-                    //data: [6456, 6356, 6526, 6332, 6418, 6500],
-                    //color: "#7E3AF2",
+                //name: "Temperature",
+                //data: [6456, 6356, 6526, 6332, 6418, 6500],
+                //color: "#7E3AF2",
                 //},
             ],
             legend: {

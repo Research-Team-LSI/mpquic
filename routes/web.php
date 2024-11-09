@@ -21,15 +21,16 @@ Route::get('/dashboard1', function () {
 //     return view('http');
 // })->name('http');
 
-Route::get('/mpquic', function () {
-    return view('mpquic');
-})->name('mpquic');
+// Route::get('/mpquic', function () {
+//     return view('mpquic');
+// })->name('mpquic');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [ChartsController::class, 'index'])->name('dashboard');
     Route::get('dashboard', [AlatController::class, 'index'])->name('dashboard');
     Route::post('dashboard', [AlatController::class, 'store'])->name('alat.store');
     Route::get('http', [AlatController::class, 'http'])->name('http');
+    Route::get('mpquic', [AlatController::class, 'mpquic'])->name('mpquic');
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {
         Route::view('detail/1', 'dashboard/detaildashboard1')->name('detail.dashboard1');
         Route::view('detail/2', 'dashboard/detaildashboard2')->name('detail.dashboard2');
@@ -45,11 +46,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('blog', 'blog')->name('blog');
     Route::view('addblog', 'addblog')->name('addblog');
     Route::view('profile', 'profile')->name('profile');
-
-    // Route::get('/alat', [AlatController::class, 'index'])->name('alat.index');
-    // Route::get('/alat/create', [AlatController::class, 'create'])->name('alat.create');
-    // Route::post('/alat', [AlatController::class, 'store'])->name('alat.store');
-
 
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {
         Route::get('riwayat-temperature', 'riwayatTemperature')->name('riwayat.temperature');
