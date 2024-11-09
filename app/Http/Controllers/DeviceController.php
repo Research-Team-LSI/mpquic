@@ -15,57 +15,57 @@ class DeviceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function dioksida(Request $request)
-    {
-        try {
-            $date = Carbon::now();
-            $data = Dioksida::create([
-                'id_alat' => $request->id_alat,
-                'nilai_dioksida' => $request->nilai,
-                'created_at' => $date,
-            ]);
+    // public function dioksida(Request $request)
+    // {
+    //     try {
+    //         $date = Carbon::now();
+    //         $data = Dioksida::create([
+    //             'id_alat' => $request->id_alat,
+    //             'nilai_dioksida' => $request->nilai,
+    //             'created_at' => $date,
+    //         ]);
 
-            return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
-        } catch (\Throwable $th) {
-            return response()->json('Data Gagal Ditambahkan');
-        }
-    }
+    //         return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
+    //     } catch (\Throwable $th) {
+    //         return response()->json('Data Gagal Ditambahkan');
+    //     }
+    // }
 
-    public function amonia(Request $request)
-    {
-        try {
-            $date = Carbon::now();
-            Amonia::create([
-                'id_alat' => $request->id_alat,
-                'nilai_amonia' => $request->nilai,
-                'created_at' => $date,
-            ]);
+    // public function amonia(Request $request)
+    // {
+    //     try {
+    //         $date = Carbon::now();
+    //         Amonia::create([
+    //             'id_alat' => $request->id_alat,
+    //             'nilai_amonia' => $request->nilai,
+    //             'created_at' => $date,
+    //         ]);
 
-            return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
-        } catch (\Throwable $th) {
-            return response()->json('Data Gagal Ditambahkan');
-        }
-    }
+    //         return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
+    //     } catch (\Throwable $th) {
+    //         return response()->json('Data Gagal Ditambahkan');
+    //     }
+    // }
 
-    public function metana(Request $request)
-    {
-        try {
-            $date = Carbon::now();
-            Metana::create([
-                'id_alat' => $request->id_alat,
-                'nilai_metana' => $request->nilai,
-                'created_at' => $date,
-            ]);
+    // public function metana(Request $request)
+    // {
+    //     try {
+    //         $date = Carbon::now();
+    //         Metana::create([
+    //             'id_alat' => $request->id_alat,
+    //             'nilai_metana' => $request->nilai,
+    //             'created_at' => $date,
+    //         ]);
 
-            return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
-        } catch (\Throwable $th) {
-            return response()->json('Data Gagal Ditambahkan');
-        }
-    }
+    //         return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
+    //     } catch (\Throwable $th) {
+    //         return response()->json('Data Gagal Ditambahkan');
+    //     }
+    // }
 
     public function temperature(Request $request)
     {
-        try {
+        try { 
             $date = Carbon::now();
             Temperature::create([
                 'id_alat' => $request->id_alat,

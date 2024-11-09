@@ -234,10 +234,9 @@
                         </div>
                         <div class="px-8 py-8">
                             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                                <table
-                                    class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                    <thead
-                                        class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400" style="background-color: #001D3D">
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                    <thead class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400"
+                                        style="background-color: #001D3D">
                                         <tr>
                                             <th scope="col" class="px-6 py-3">
                                                 Id
@@ -414,9 +413,9 @@
                     color: "#FCA311",
                 },
                 //{
-                    //name: "Temperature",
-                    //data: [6456, 6356, 6526, 6332, 6418, 6500],
-                    //color: "#7E3AF2",
+                //name: "Temperature",
+                //data: [6456, 6356, 6526, 6332, 6418, 6500],
+                //color: "#7E3AF2",
                 //},
             ],
             legend: {

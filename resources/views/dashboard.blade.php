@@ -57,15 +57,16 @@
                         <div class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
                             <h6 class="m-0 font-semibold text-gray-700">Dashboard</h6>
                             <button type="button"
-                            class="ms-auto text-white bg-blue-950 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                            data-modal-target="crud-modal" data-modal-toggle="crud-modal">
-                            <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd"
-                                    d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                            Tambah</button>
+                                class="ms-auto text-white bg-blue-950 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                data-modal-target="crud-modal" data-modal-toggle="crud-modal">
+                                <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                Tambah
+                            </button>
                         </div>
                         <div class="grid grid-cols-3 gap-4">
                             <div class="col-span-1">
@@ -81,18 +82,6 @@
                                             </div>
                                         </div>
                                         <p class="text-white text-5xl font-extrabold pb-2">32</p>
-
-
-                                        {{-- <div class="progress-container">
-                                            <div id="progressFillTemperature" class="progress-bar-fill"></div>
-                                            <div id="progressNeedleTemperature" class="progress-needle"></div>
-                                        </div>
-
-                                        <div class="flex justify-between w-full mb-6">
-                                            <p class="text-white text-sm">Buruk</p>
-                                            <p class="text-white text-sm">Baik</p>
-                                        </div> --}}
-
                                         <p class="text-white text-sm">Temperature (°C)</p>
                                         <p class="text-white text-sm">Saat ini</p>
                                         <div id="latestValueTemperature" class="text-white text-5xl font-bold mb-4">
@@ -113,20 +102,7 @@
                                                 <p class="text-white text-sm" id="percentageValueTemperature"></p>
                                             </div>
                                         </div>
-
                                         <p class="text-white text-5xl font-extrabold pb-2">50</p>
-
-
-                                        {{-- <div class="progress-container">
-                                            <div id="progressFillTemperature" class="progress-bar-fill"></div>
-                                            <div id="progressNeedleTemperature" class="progress-needle"></div>
-                                        </div> --}}
-
-                                        {{-- <div class="flex justify-between w-full mb-6">
-                                            <p class="text-white text-sm">Buruk</p>
-                                            <p class="text-white text-sm">Baik</p>
-                                        </div> --}}
-
                                         <p class="text-white text-sm">Humadity (%)</p>
                                         <p class="text-white text-sm">Saat ini</p>
                                         <div id="latestValueTemperature" class="text-white text-5xl font-bold mb-4">
@@ -196,7 +172,8 @@
                                                 <h5
                                                     class="inline-flex items-center text-gray-500 dark:text-gray-400 leading-none font-normal mb-2">
                                                     MP QUIC
-                                                    <svg data-popover-target="cpc-info" data-popover-placement="bottom"
+                                                    <svg data-popover-target="cpc-info"
+                                                        data-popover-placement="bottom"
                                                         class="w-3 h-3 text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer ms-1"
                                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                                         fill="currentColor" viewBox="0 0 20 20">
@@ -308,87 +285,41 @@
                             <div class="bg-white shadow-lg rounded-lg mb-4">
                                 <div class="px-8 py-8">
                                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                                        {{-- tabel --}}
                                         <table
                                             class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                             <thead
-                                                class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400" style="background-color: #FCA311">
+                                                class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400"
+                                                style="background-color: #FCA311">
                                                 <tr>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Id
-                                                    </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Jenis Protokol
-                                                    </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Microcontroller
-                                                    </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Mac Address
-                                                    </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        IP Address
-                                                    </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Throughput
-                                                    </th>
-                                                    <th scope="col" class="px-6 py-3">
-                                                        Latency
-                                                    </th>
+                                                    <th scope="col" class="px-6 py-3">ID</th>
+                                                    <th scope="col" class="px-6 py-3">Jenis Protokol</th>
+                                                    <th scope="col" class="px-6 py-3">Microcontroller</th>
+                                                    <th scope="col" class="px-6 py-3">MAC Address</th>
+                                                    <th scope="col" class="px-6 py-3">IP Address</th>
+                                                    <th scope="col" class="px-6 py-3">Throughput</th>
+                                                    <th scope="col" class="px-6 py-3">Latency</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr
-                                                    class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                    <th scope="row"
-                                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                        101
-                                                    </th>
-                                                    <td class="px-6 py-4">
-                                                        ESP32-321231
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        MP QUIC
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        10.00.10
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        10.01.00
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        00.00.50
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        00.00.50
-                                                    </td>
-                                                </tr>
-                                                <tr
-                                                    class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                    <th scope="row"
-                                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                        102
-                                                    </th>
-                                                    <td class="px-6 py-4">
-                                                        ESP32-321231
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        HTTP
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        10.10.00
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        10.11.00
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        00.01.00
-                                                    </td>
-                                                    <td class="px-6 py-4">
-                                                        00.00.50
-                                                    </td>
-                                                </tr>
+                                                @foreach ($alat as $item)
+                                                    <tr
+                                                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                                                        <th scope="row"
+                                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                            {{ $item->id_alat }}
+                                                        </th>
+                                                        <td class="px-6 py-4">{{ $item->protocol }}</td>
+                                                        <td class="px-6 py-4">{{ $item->microcontroller }}</td>
+                                                        <td class="px-6 py-4">{{ $item->mac_address }}</td>
+                                                        <td class="px-6 py-4">{{ $item->ip_address }}</td>
+                                                        <td class="px-6 py-4">{{ $item->throughput ?? 'N/A' }}</td>
+                                                        <td class="px-6 py-4">{{ $item->latency ?? 'N/A' }}</td>
+                                                    </tr>
+                                                @endforeach
                                             </tbody>
                                         </table>
+
 
                                         {{-- <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4 pb-4 ml-8 mr-5"
                                             aria-label="Table navigation">
@@ -428,81 +359,157 @@
                                             </ul>
                                         </nav> --}}
 
-                                        <div id="crud-modal" tabindex="-1" aria-hidden="true"
-                                    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                                    <div class="relative p-4 w-full max-w-md max-h-full">
-                                        <!-- Modal content -->
-                                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                            <!-- Modal header -->
-                                            <div
-                                                class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                                                    Tambah Microcontroller
-                                                </h3>
-                                                <button type="button"
-                                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                    data-modal-toggle="crud-modal">
-                                                    <svg class="w-3 h-3" aria-hidden="true"
-                                                        xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                        viewBox="0 0 14 14">
-                                                        <path stroke="currentColor" stroke-linecap="round"
-                                                            stroke-linejoin="round" stroke-width="2"
-                                                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                                    </svg>
-                                                    <span class="sr-only">Close modal</span>
-                                                </button>
-                                            </div>
-                                            <!-- Modal body -->
-                                            <form class="p-4 md:p-5">
-                                                <div class="grid gap-4 mb-4 grid-cols-2">
-                                                    <div class="col-span-2">
-                                                        <label for="idmicrocontroller"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id
-                                                            Microcontroller</label>
-                                                        <input type="text" name="idmicrocontroller"
-                                                            id="idmicrocontroller"
-                                                            class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                            placeholder="Microcontroller" required=""
-                                                            value="106" readonly>
-                                                        <label for="name"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis
-                                                            Microcontroller</label>
-                                                        <select id="name"
-                                                            class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                                            <option selected="microcontroller">Pilih Microcontroller
-                                                            </option>
-                                                            <option value="esp32">ESP32</option>
-                                                            </option>
-                                                            <option value="esp8266">ESP8266</option>
-                                                            <option value="Rpi">Raspberry Pi</option>
-                                                        </select>
-                                                        <label for="macaddress"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                                            Mac Address</label>
-                                                        <input type="text" name="macaddress" id="macaddress"
-                                                            class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                            placeholder="contoh: 00-B0-D0-63-C2-26" required="">
-                                                        <label for="ipaddress"
-                                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                                            IP Address</label>
-                                                        <input type="text" name="ipaddress" id="ipaddress"
-                                                            class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                            placeholder="contoh: 192.164.001.001" required="">
+                                        {{-- <div id="crud-modal" tabindex="-1" aria-hidden="true"
+                                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                                            <div class="relative p-4 w-full max-w-md max-h-full">
+                                                <!-- Modal content -->
+                                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                                    <!-- Modal header -->
+                                                    <div
+                                                        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                                        <h3
+                                                            class="text-lg font-semibold text-gray-900 dark:text-white">
+                                                            Tambah Microcontroller
+                                                        </h3>
+                                                        <button type="button"
+                                                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                                            data-modal-toggle="crud-modal">
+                                                            <svg class="w-3 h-3" aria-hidden="true"
+                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                                viewBox="0 0 14 14">
+                                                                <path stroke="currentColor" stroke-linecap="round"
+                                                                    stroke-linejoin="round" stroke-width="2"
+                                                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                                            </svg>
+                                                            <span class="sr-only">Close modal</span>
+                                                        </button>
                                                     </div>
+                                                    <!-- Modal body -->
+                                                    <form class="p-4 md:p-5">
+                                                        <div class="grid gap-4 mb-4 grid-cols-2">
+                                                            <div class="col-span-2">
+                                                                <label for="idmicrocontroller"
+                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id
+                                                                    Microcontroller</label>
+                                                                <input type="text" name="idmicrocontroller"
+                                                                    id="idmicrocontroller"
+                                                                    class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                                                    placeholder="Microcontroller" required=""
+                                                                    value="106" readonly>
+                                                                <label for="name"
+                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis
+                                                                    Microcontroller</label>
+                                                                <select id="name"
+                                                                    class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                                                    <option selected="microcontroller">Pilih
+                                                                        Microcontroller
+                                                                    </option>
+                                                                    <option value="esp32">ESP32</option>
+                                                                    </option>
+                                                                    <option value="esp8266">ESP8266</option>
+                                                                    <option value="Rpi">Raspberry Pi</option>
+                                                                </select>
+                                                                <label for="macaddress"
+                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                                                    Mac Address</label>
+                                                                <input type="text" name="macaddress"
+                                                                    id="macaddress"
+                                                                    class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                                                    placeholder="contoh: 00-B0-D0-63-C2-26"
+                                                                    required="">
+                                                                <label for="ipaddress"
+                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                                                    IP Address</label>
+                                                                <input type="text" name="ipaddress" id="ipaddress"
+                                                                    class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                                                    placeholder="contoh: 192.164.001.001"
+                                                                    required="">
+                                                            </div>
+                                                        </div>
+                                                        <button type="submit"
+                                                            class="text-white inline-flex items-center bg-blue-950 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                                            Simpan
+                                                        </button>
+                                                    </form>
                                                 </div>
-                                                <button type="submit"
-                                                    class="text-white inline-flex items-center bg-blue-950 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                                    Simpan
-                                                </button>
-                                            </form>
-                                        </div>
+                                            </div>
+                                        </div> --}}
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+
+                        {{-- Modal --}}
+                        <div id="crud-modal" tabindex="-1"
+                            class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+                            <div class="relative w-full h-full max-w-md md:h-auto">
+                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                    <button type="button"
+                                        class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white"
+                                        data-modal-toggle="crud-modal">
+                                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor"
+                                            viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                    <div class="px-6 py-6 lg:px-8">
+                                        <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Tambah Alat
+                                        </h3>
+                                        <form class="space-y-6" action="/dashboard" method="POST">
+                                            @csrf
+                                            <div>
+                                                <label for="protocol"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Protocol</label>
+                                                <select id="protocol" name="protocol"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                                    <option selected="protocol">Pilih Protocol
+                                                    </option>
+                                                    <option value="http">HTTP</option>
+                                                    <option value="mpquic">MPQUIC</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label for="microcontroller"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Microcontroller</label>
+                                                <select id="microcontroller" name="microcontroller"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                                    <option selected="microcontroller">Pilih Microcontroller
+                                                    </option>
+                                                    <option value="esp32">ESP32</option>
+                                                    <option value="esp8266">ESP8266</option>
+                                                    <option value="raspberrypi">Raspberry Pi</option>
+                                                </select>
+                                            </div>
+                                            <div>
+                                                <label for="mac_address"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">MAC
+                                                    Address</label>
+                                                <input type="text" name="mac_address" id="mac_address"
+                                                    maxlength="20"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                                    placeholder="contoh: 00-B0-D0-63-C2-26" required>
+                                            </div>
+                                            <div>
+                                                <label for="ip_address"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">IP
+                                                    Address</label>
+                                                <input type="text" name="ip_address" id="ip_address"
+                                                    maxlength="16"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                                    placeholder="contoh: 192.164.001.001" required>
+                                            </div>
+                                            <button type="submit"
+                                                class="w-full text-white bg-blue-950 hover:bg-blue-700 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambah</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
             </main>
 
             <!-- Footer -->

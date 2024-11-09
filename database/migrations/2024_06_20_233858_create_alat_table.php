@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('alat', function (Blueprint $table) {
-            $table->integer('id_alat')->unsigned()->length(3)->primary();
+            // $table->integer('id_alat')->unsigned()->length(3)->primary();
+            $table->increments('id_alat');
             $table->enum('protocol', ['http', 'mpquic']);
             $table->enum('microcontroller', ['esp32', 'esp8266', 'raspberrypi']);
             $table->string('mac_address', 20);

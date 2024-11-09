@@ -5,6 +5,7 @@ use App\Exports\DioksidaExport;
 use App\Exports\HumidityExport;
 use App\Exports\MetanaExport;
 use App\Exports\TemperatureExport;
+use App\Http\Controllers\AlatController;
 use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\RiwayatController;
 use Illuminate\Http\Request;
@@ -26,6 +27,8 @@ Route::get('/mpquic', function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [ChartsController::class, 'index'])->name('dashboard');
+    Route::get('dashboard', [AlatController::class, 'index'])->name('dashboard');
+    Route::post('dashboard', [AlatController::class, 'store'])->name('alat.store');
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {
         Route::view('detail/1', 'dashboard/detaildashboard1')->name('detail.dashboard1');
         Route::view('detail/2', 'dashboard/detaildashboard2')->name('detail.dashboard2');
@@ -42,6 +45,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::view('addblog', 'addblog')->name('addblog');
     Route::view('profile', 'profile')->name('profile');
 
+    // Route::get('/alat', [AlatController::class, 'index'])->name('alat.index');
+    // Route::get('/alat/create', [AlatController::class, 'create'])->name('alat.create');
+    // Route::post('/alat', [AlatController::class, 'store'])->name('alat.store');
+
 
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {
         Route::get('riwayat-temperature', 'riwayatTemperature')->name('riwayat.temperature');
@@ -55,7 +62,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/data/metana', 'getMetanaData')->name('data.riwayatmetana');
         Route::post('/data/humidity', 'getHumidityData')->name('data.riwayathumidity');
         Route::post('/data/dioksida', 'getDioksidaData')->name('data.riwayatdioksida');
-
     });
     Route::get('export/ammonia', function (Request $request) {
         $startDate = $request->query('createFrom');
@@ -92,4 +98,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('export.dioksida');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
