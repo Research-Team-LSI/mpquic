@@ -52,6 +52,22 @@
 
             <!-- Main Content -->
             <main class="flex-1 overflow-y-auto p-4">
+                {{-- Ini untuk alert --}}
+                @if (session('success'))
+                    <div id="success-alert"
+                        class="mb-4 p-4 text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800"
+                        role="alert">
+                        <span class="font-medium">Success!</span> {{ session('success') }}
+                    </div>
+                    <script>
+                        setTimeout(function() {
+                            var alert = document.getElementById('success-alert');
+                            if (alert) {
+                                alert.style.display = 'none';
+                            }
+                        }, 5000);
+                    </script>
+                @endif
                 <div class="gap-4">
                     <div class="bg-white shadow-lg rounded-lg mb-4">
                         <div class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
@@ -438,7 +454,6 @@
                                 </div>
                             </div>
                         </div>
-
                         {{-- Modal --}}
                         <div id="crud-modal" tabindex="-1"
                             class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">

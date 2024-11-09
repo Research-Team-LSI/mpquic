@@ -11,6 +11,6 @@ class Alat extends Model
 
     protected $table = 'alat';
     protected $primaryKey = 'id_alat';
-    public $incrementing = false; // Jika ID bukan auto-increment
+    public $incrementing = false; 
     protected $fillable = ['protocol', 'microcontroller', 'mac_address', 'ip_address'];
 }

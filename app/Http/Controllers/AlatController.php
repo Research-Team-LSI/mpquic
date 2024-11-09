@@ -20,10 +20,8 @@ class AlatController extends Controller
     //     return view('alat.create');
     // }
 
-    // Menyimpan data alat baru
     public function store(Request $request)
     {
-        // Validasi input
         $request->validate([
             'protocol' => 'required|in:http,mpquic',
             'microcontroller' => 'required|in:esp32,esp8266,raspberrypi',
@@ -31,7 +29,6 @@ class AlatController extends Controller
             'ip_address' => 'required|string|max:16',
         ]);
 
-        // Simpan data ke tabel alat
         Alat::create([
             'protocol' => $request->protocol,
             'microcontroller' => $request->microcontroller,
