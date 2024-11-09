@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class AlatController extends Controller
 {
-    // Menampilkan daftar alat
     public function index()
     {
-        $alat = Alat::all();
+        // $alat = Alat::all();
+        $alat = Alat::with('data')->get();
         return view('dashboard', compact('alat'));
     }
     public function http()

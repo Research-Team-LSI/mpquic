@@ -13,13 +13,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(100)->create();
-
         User::factory()->create([
             'name' => 'MP QUIC Admin',
             'email' => 'admin@gmail.com',
             'password' => '12345678',
             'address' => 'Jl. Mastrip No. 164 Jember',
+        ]);
+
+        $this->call([
+            AlatTableSeeder::class,
+            DataTableSeeder::class,
         ]);
     }
 }

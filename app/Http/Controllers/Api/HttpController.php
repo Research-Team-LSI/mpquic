@@ -12,21 +12,38 @@ class HttpController extends Controller
     /**
      * Display a listing of the resource.
      */
+    // public function index(Request $request)
+    // {
+    //     $humidity = Humidity::where('id_alat', $request->id)
+    //         ->offset(0)
+    //         ->limit(1)
+    //         ->orderBy('id_humidity', 'desc')
+    //         ->get();
+    //     $temperature = Temperature::where('id_alat', $request->id)
+    //         ->offset(0)
+    //         ->limit(1)
+    //         ->orderBy('id_temperature', 'desc')
+    //         ->get();
+
+    //     return response()->json(['humidity' => $humidity, 'Temperature' => $temperature]);
+    // }
+
     public function index(Request $request)
     {
         $humidity = Humidity::where('id_alat', $request->id)
-            ->offset(0)
-            ->limit(1)
             ->orderBy('id_humidity', 'desc')
-            ->get();
-        $temperature = Temperature::where('id_alat', $request->id)
-            ->offset(0)
-            ->limit(1)
-            ->orderBy('id_temperature', 'desc')
-            ->get();
+            ->first();
 
-        return response()->json(['humidity' => $humidity, 'Temperature' => $temperature]);
+        $temperature = Temperature::where('id_alat', $request->id)
+            ->orderBy('id_temperature', 'desc')
+            ->first();
+
+        return response()->json([
+            'humidity' => $humidity,
+            'temperature' => $temperature
+        ]);
     }
+
 
     /**
      * Show the form for creating a new resource.

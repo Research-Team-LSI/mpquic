@@ -11,6 +11,11 @@ class Alat extends Model
 
     protected $table = 'alat';
     protected $primaryKey = 'id_alat';
-    public $incrementing = false; 
+    public $incrementing = false;
     protected $fillable = ['protocol', 'microcontroller', 'mac_address', 'ip_address'];
+
+    public function data()
+    {
+        return $this->hasMany(Data::class, 'id_alat');
+    }
 }

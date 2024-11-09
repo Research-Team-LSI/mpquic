@@ -316,8 +316,16 @@
                                                 <td class="px-6 py-4">{{ $item->microcontroller }}</td>
                                                 <td class="px-6 py-4">{{ $item->mac_address }}</td>
                                                 <td class="px-6 py-4">{{ $item->ip_address }}</td>
-                                                <td class="px-6 py-4">{{ $item->throughput ?? 'N/A' }}</td>
-                                                <td class="px-6 py-4">{{ $item->latency ?? 'N/A' }}</td>
+                                                <td class="px-6 py-4">
+                                                    @foreach ($item->data as $data)
+                                                        <div>{{ $data->throughput }}</div>
+                                                    @endforeach
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    @foreach ($item->data as $data)
+                                                        <div>{{ $data->latency }}</div>
+                                                    @endforeach
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
