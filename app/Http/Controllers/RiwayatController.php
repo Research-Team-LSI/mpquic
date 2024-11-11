@@ -67,7 +67,7 @@ class RiwayatController extends Controller
         $end_date = $request->input('createTo') ?? now()->format('Y-m-d');
 
         // Query untuk mendapatkan data suhu rata-rata antara dua tanggal
-        $data = Temperature::selectRaw('DATE(created_at) as date, round(AVG(nilai_suhu), 0) as avg_temperature')
+        $data = Temperature::selectRaw('DATE(created_at) as date, round(AVG(nilai_temperature), 0) as avg_temperature')
             ->whereBetween('created_at', [$start_date, $end_date])
             ->groupBy('date')
             ->orderBy('date')

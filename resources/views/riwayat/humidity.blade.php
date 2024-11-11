@@ -42,7 +42,7 @@
                     <div class="px-4 pb-4">
                         <div class="overflow-x-auto mt-4">
                             <div class="flex items-end justify-end">
-                                <div id="daterange" style="background-color: #001D3D"
+                                <div id="daterange" style="background-color: #FCA311"
                                     class="py-2 px-3 text-body font-semibold text-lwhite rounded-md flex items-center space-x-2">
                                     <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

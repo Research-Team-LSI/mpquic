@@ -42,7 +42,7 @@
                     <div class="px-4 pb-4">
                         <div class="overflow-x-auto mt-4">
                             <div class="flex items-end justify-end">
-                                <div id="daterange" style="background-color: #001D3D"
+                                <div id="daterange" style="background-color: #FCA311"
                                     class="py-2 px-3 text-body font-semibold text-lwhite rounded-md flex items-center space-x-2">
                                     <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true"
                                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -86,11 +86,12 @@
                 var start = $('#daterange').data('daterangepicker').startDate.format('YYYY-MM-DD');
                 var end = $('#daterange').data('daterangepicker').endDate.format('YYYY-MM-DD');
 
-                window.location.href = '{{ route('export.humidity') }}?createFrom=' + start + '&createTo=' +
+                window.location.href = '{{ route('export.temperature') }}?createFrom=' + start + '&createTo=' +
                     end;
             });
         });
     </script>
+
     <script type="text/javascript">
         $(function() {
             var start_date = moment().subtract(6, 'days');
@@ -116,7 +117,7 @@
                     data: {
                         labels: labels,
                         datasets: [{
-                            label: 'Humidity Levels',
+                            label: 'Temperature Levels',
                             data: data,
                             backgroundColor: 'rgba(75, 192, 192, 0.2)',
                             borderColor: 'rgba(75, 192, 192, 1)',
@@ -136,7 +137,7 @@
             // Fungsi untuk mendapatkan data berdasarkan rentang tanggal
             function fetchData(start, end) {
                 $.ajax({
-                    url: '{{ route('data.riwayathumidity') }}',
+                    url: '{{ route('data.riwayattemperature') }}',
                     method: 'POST',
                     data: {
                         createFrom: start.format('YYYY-MM-DD'),

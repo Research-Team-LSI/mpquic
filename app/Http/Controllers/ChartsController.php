@@ -78,7 +78,7 @@ class ChartsController extends Controller
             $labels = $speeds->pluck('created_at')->map(function ($date) {
                 return $date->format('H:i');
             })->toArray();
-            $data = $speeds->pluck('nilai_suhu')->toArray();
+            $data = $speeds->pluck('nilai_temperature')->toArray();
 
             $latestData = Temperature::latest()->first();
 
@@ -87,7 +87,7 @@ class ChartsController extends Controller
                 'data' => $data,
                 'latest' => [
                     'id_temp' => $latestData->id_temp,
-                    'nilai_suhu' => $latestData->nilai_suhu,
+                    'nilai_temperature' => $latestData->nilai_temperature,
                     'created_at' => $latestData->created_at,
                     'updated_at' => $latestData->updated_at,
                 ],

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
@@ -87,47 +88,56 @@
                         <div class="grid grid-cols-3 gap-4">
                             <div class="col-span-1">
                                 <div class="py-4">
-                                    <div
-                                        class="bg-blue-950 h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
+                                    <div class="bg-blue-950 h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center">
                                         <div class="flex justify-between w-full my-6 items-center">
-                                            <p class="text-white text-sm font-bold">Temperature (°C)</p>
+                                            <p class="text-white text-sm font-bold">Temperature</p>
                                             <div class="flex items-center">
-                                                <div id="colorIndicatorTemperature" class="w-3 h-3 rounded-full mr-2">
-                                                </div>
+                                                <div id="colorIndicatorTemperature" class="w-3 h-3 rounded-full mr-2"></div>
                                                 <p class="text-white text-sm" id="percentageValueTemperature"></p>
                                             </div>
                                         </div>
-                                        <p class="text-white text-5xl font-extrabold pb-2">32</p>
-                                        <p class="text-white text-sm">Temperature (°C)</p>
-                                        <p class="text-white text-sm">Saat ini</p>
-                                        <div id="latestValueTemperature" class="text-white text-5xl font-bold mb-4">
-                                        </div>
-                                        <p id="lastUpdatedTemperature" class="text-white text-sm"></p>
+                                        {{-- <div id="latestValueTemperature" class="text-white text-5xl font-bold mb-4"></div> --}}
+                                        {{-- <p class="text-white text-sm">Temperature (°C)</p> --}}
+                                        {{-- <p class="text-white text-sm">Saat ini</p> --}}
+                                        <div id="latestValueTemperature" class="text-white text-5xl font-bold mb-4"></div>
+                                        <p id="lastUpdatedTemperature" class="text-white text-xs pb-7"></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-span-1">
-                                <div class="py-4">
-                                    <div class="h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center"
-                                        style="background-color: #FCA311">
-                                        <div class="flex justify-between w-full my-6 items-center">
-                                            <p class="text-white text-sm font-bold">Humidity (%)</p>
-                                            <div class="flex items-center">
-                                                <div id="colorIndicatorTemperature" class="w-3 h-3 rounded-full mr-2">
-                                                </div>
-                                                <p class="text-white text-sm" id="percentageValueTemperature"></p>
-                                            </div>
-                                        </div>
-                                        <p class="text-white text-5xl font-extrabold pb-2">50</p>
-                                        <p class="text-white text-sm">Humadity (%)</p>
-                                        <p class="text-white text-sm">Saat ini</p>
-                                        <div id="latestValueTemperature" class="text-white text-5xl font-bold mb-4">
-                                        </div>
-                                        <p id="lastUpdatedTemperature" class="text-white text-sm"></p>
-                                    </div>
-                                </div>
-                            </div>
+
+                            <script>
+                                // JavaScript untuk mengambil data terbaru
+                                fetchLatestTemperature();
+                            </script>
+
+<div class="col-span-1">
+    <div class="py-4">
+        <div class="h-full px-8 rounded-lg shadow-lg flex flex-col justify-center items-center" style="background-color: #FCA311">
+            <div class="flex justify-between w-full my-6 items-center">
+                <p class="text-white text-sm font-bold">Humidity</p>
+                <div class="flex items-center">
+                    <div id="colorIndicatorHumidity" class="w-3 h-3 rounded-full mr-2"></div>
+                    <p class="text-white text-sm" id="percentageValueHumidity"></p>
+                </div>
+            </div>
+            <div id="latestValueHumidity" class="text-white text-5xl font-bold mb-4"></div>
+            <p id="lastUpdatedHumidity" class="text-white text-xs pb-7"></p>
+
+            {{-- <p class="text-white text-sm">Humidity (%)</p>
+            <p class="text-white text-sm">Saat ini</p> --}}
+            {{-- <div id="latestValueHumidity" class="text-white text-5xl font-bold mb-4"></div> --}}
+
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript untuk mengambil data terbaru kelembapan
+    fetchLatestHumidity();
+</script>
+
                         </div>
+
 
                         <div class="px-8 py-8">
                             <div class="grid gap-4 grid-cols-1">
@@ -297,10 +307,16 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="gap-4">
                             <div class="bg-white shadow-lg rounded-lg mb-4">
                                 <div class="px-8 py-8">
                                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+
+
+
+
+
                                         {{-- tabel --}}
                                         <table
                                             class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -627,7 +643,54 @@
             const chart1 = new ApexCharts(document.getElementById("line-chart"), options1);
             chart1.render();
         };
-    </script>
-</body>
 
+
+        async function fetchLatestTemperature() {
+    try {
+        const response = await fetch('/api/latest-temperature');
+        const data = await response.json();
+
+        // Update elemen card dengan data yang diambil
+        document.getElementById('latestValueTemperature').innerText = data.nilai_temperature + " °C";
+        document.getElementById('lastUpdatedTemperature').innerText = "Last updated: " + new Date(data.updated_at).toLocaleString();
+    } catch (error) {
+        console.error('Error fetching temperature:', error);
+    }
+}
+
+// Panggil fungsi setiap beberapa detik untuk update otomatis
+setInterval(fetchLatestTemperature, 10000); // Update setiap 10 detik
+
+// Panggilan awal saat halaman dimuat
+fetchLatestTemperature();
+
+
+
+async function fetchLatestHumidity() {
+    try {
+        const response = await fetch('/api/latest-humidity');
+        const data = await response.json();
+
+        // Update elemen card dengan data yang diambil
+        document.getElementById('latestValueHumidity').innerText = data.nilai_humidity + " %";
+        document.getElementById('lastUpdatedHumidity').innerText = "Last updated: " + new Date(data.updated_at).toLocaleString();
+    } catch (error) {
+        console.error('Error fetching humidity:', error);
+    }
+}
+
+// Panggil fungsi setiap beberapa detik untuk update otomatis
+setInterval(fetchLatestHumidity, 10000); // Update setiap 10 detik
+
+// Panggilan awal saat halaman dimuat
+fetchLatestHumidity();
+
+
+    </script>
+
+
+
+
+
+</body>
 </html>

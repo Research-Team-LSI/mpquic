@@ -108,6 +108,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/export-http', function () {
         return Excel::download(new HttpExport, 'HttpExport.xlsx');
     })->name('export.http');
+
+
+
 });
 
 require __DIR__ . '/auth.php';

@@ -27,3 +27,19 @@ Route::get('/round-robin', [RoundRobinController::class, 'roundRobin']);
 
 // Route::post('/roundrobin', [RoundRobinPyton::class, 'calculate']);
 Route::get('/fetch-round-robin', [RoundRobinPytonController::class, 'fetchData']);
+
+Route::get('/latest-temperature', function () {
+    $latestTemperature = DB::table('temperature')
+        ->orderBy('created_at', 'desc')
+        ->first();
+
+    return response()->json($latestTemperature);
+});
+
+Route::get('/latest-humidity', function () {
+    $latestHumidity = DB::table('humidity')
+        ->orderBy('created_at', 'desc')
+        ->first();
+
+    return response()->json($latestHumidity);
+});
