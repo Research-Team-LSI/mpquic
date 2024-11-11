@@ -11,6 +11,11 @@ use App\Http\Controllers\RiwayatController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\MpQuicExport;
+use App\Exports\HttpExport;
+
+
+
 
 Route::view('/', 'welcome');
 Route::get('/dashboard1', function () {
@@ -95,6 +100,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         return Excel::download(new DioksidaExport($startDate, $endDate), 'dioksida_data.xlsx');
     })->name('export.dioksida');
+
+    Route::get('/export-mpquic', function () {
+        return Excel::download(new MpQuicExport, 'MpQuicExport.xlsx');
+    })->name('export.mpquic');
+
+    Route::get('/export-http', function () {
+        return Excel::download(new HttpExport, 'HttpExport.xlsx');
+    })->name('export.http');
 });
 
 require __DIR__ . '/auth.php';

@@ -56,6 +56,16 @@
                         <div class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
                             <h6 class="m-0 font-semibold text-gray-700">HTTP</h6>
 
+                            <a href="{{ route('export.http') }}" id="export-btn" style="background-color: #001D3D"
+                            class="py-1 px-3 text-body font-semibold text-white rounded-md flex items-center space-x-2">
+                             <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true"
+                                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
+                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                       d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
+                             </svg>
+                             <span>Export</span>
+                         </a>
+
                         </div>
                         <div class="px-8 py-8">
                             <div class="grid gap-4 grid-cols-1">
@@ -199,7 +209,7 @@
                                 {{-- ini tabel baru --}}
                                 <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                                     <thead class="text-xs text-white uppercase dark:bg-gray-700 dark:text-gray-400"
-                                        style="background-color: #FCA311">
+                                        style="background-color: #001D3D">
                                         <tr>
                                             <th scope="col" class="px-6 py-3">ID</th>
                                             <th scope="col" class="px-6 py-3">Jenis Protokol</th>
@@ -385,48 +395,48 @@
                 });
 
 
-            const chartElement = document.getElementById("line-chart");
-            let chart;
+            // const chartElement = document.getElementById("line-chart");
+            // let chart;
 
-            function renderChart(data, timestamps) {
-                const options = {
-                    chart: {
-                        type: "line",
-                        height: "100%",
-                        maxWidth: "100%"
-                    },
-                    series: [{
-                        name: "Throughput",
-                        data
-                    }],
-                    xaxis: {
-                        categories: timestamps
-                    }
-                };
-                if (chart) {
-                    chart.updateOptions(options);
-                } else {
-                    chart = new ApexCharts(chartElement, options);
-                    chart.render();
-                }
-            }
+            // function renderChart(data, timestamps) {
+            //     const options = {
+            //         chart: {
+            //             type: "line",
+            //             height: "100%",
+            //             maxWidth: "100%"
+            //         },
+            //         series: [{
+            //             name: "Throughput",
+            //             data
+            //         }],
+            //         xaxis: {
+            //             categories: timestamps
+            //         }
+            //     };
+            //     if (chart) {
+            //         chart.updateOptions(options);
+            //     } else {
+            //         chart = new ApexCharts(chartElement, options);
+            //         chart.render();
+            //     }
+            // }
 
-            function fetchChartData(filter) {
-                fetch(`/throughput-data?date_filter=${filter}`)
-                    .then(response => response.json())
-                    .then(apiData => renderChart(apiData.data, apiData.timestamps));
-            }
+            // function fetchChartData(filter) {
+            //     fetch(`/throughput-data?date_filter=${filter}`)
+            //         .then(response => response.json())
+            //         .then(apiData => renderChart(apiData.data, apiData.timestamps));
+            // }
 
-            document.querySelectorAll('.filter-option').forEach(option => {
-                option.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const filter = option.getAttribute('data-filter');
-                    fetchChartData(filter);
-                });
-            });
+            // document.querySelectorAll('.filter-option').forEach(option => {
+            //     option.addEventListener('click', (e) => {
+            //         e.preventDefault();
+            //         const filter = option.getAttribute('data-filter');
+            //         fetchChartData(filter);
+            //     });
+            // });
 
-            // Render initial chart data (e.g., last week)
-            fetchChartData('last_7_days');
+            // // Render initial chart data (e.g., last week)
+            // fetchChartData('last_7_days');
         });
     </script>
 
