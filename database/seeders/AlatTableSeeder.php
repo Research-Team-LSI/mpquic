@@ -26,6 +26,38 @@ class AlatTableSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'protocol' => 'http',
+                'microcontroller' => 'esp32',
+                'mac_address' => 'AA:BB:CC:DD:EE:01',
+                'ip_address' => '192.168.1.1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'protocol' => 'http',
+                'microcontroller' => 'esp32',
+                'mac_address' => 'AA:BB:CC:DD:EE:01',
+                'ip_address' => '192.168.1.1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'protocol' => 'http',
+                'microcontroller' => 'esp32',
+                'mac_address' => 'AA:BB:CC:DD:EE:01',
+                'ip_address' => '192.168.1.1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'protocol' => 'http',
+                'microcontroller' => 'esp32',
+                'mac_address' => 'AA:BB:CC:DD:EE:01',
+                'ip_address' => '192.168.1.1',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

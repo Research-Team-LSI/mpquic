@@ -31,6 +31,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('dashboard', [AlatController::class, 'store'])->name('alat.store');
     Route::get('http', [AlatController::class, 'http'])->name('http');
     Route::get('mpquic', [AlatController::class, 'mpquic'])->name('mpquic');
+    Route::get('/throughput-data', [AlatController::class, 'getThroughputData']);
+
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {
         Route::view('detail/1', 'dashboard/detaildashboard1')->name('detail.dashboard1');
         Route::view('detail/2', 'dashboard/detaildashboard2')->name('detail.dashboard2');

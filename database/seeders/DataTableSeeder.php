@@ -24,6 +24,34 @@ class DataTableSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'id_alat' => 3,
+                'throughput' => 40.123,
+                'latency' => 11.456,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id_alat' => 4,
+                'throughput' => 33.123,
+                'latency' => 10.456,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id_alat' => 5,
+                'throughput' => 28.123,
+                'latency' => 10.456,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id_alat' => 6,
+                'throughput' => 18.123,
+                'latency' => 10.456,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

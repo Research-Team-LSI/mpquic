@@ -9,7 +9,6 @@ class AlatController extends Controller
 {
     public function index()
     {
-        // $alat = Alat::all();
         $alat = Alat::with('data')->get();
         return view('dashboard', compact('alat'));
     }
@@ -23,13 +22,47 @@ class AlatController extends Controller
         $alat = Alat::where('protocol', 'mpquic')->paginate(5);
         return view('mpquic', compact('alat'));
     }
-
-
-    // Menampilkan form tambah alat
-    // public function create()
+    // public function getThroughputData()
     // {
-    //     return view('alat.create');
+    //     $data = Alat::with('data')->get()->pluck('data.*.throughput')->flatten();
+    //     $timestamps = Alat::with('data')->get()->pluck('data.*.created_at')->flatten();
+
+    //     return response()->json([
+    //         'data' => $data,
+    //         'timestamps' => $timestamps->map(fn($timestamp) => $timestamp->format('d M')),
+    //     ]);
     // }
+
+    public function getThroughputData(Request $request)
+    {
+        $query = Alat::with('data');
+
+        if ($request->has('date_filter')) {
+            switch ($request->date_filter) {
+                case 'today':
+                    $query->whereHas('data', function ($q) {
+                        $q->whereDate('created_at', now()->toDateString());
+                    });
+                    break;
+                case 'last_7_days':
+                    $query->whereHas('data', function ($q) {
+                        $q->whereDate('created_at', '>=', now()->subDays(7)->toDateString());
+                    });
+                    break;
+            }
+        }
+
+        $data = $query->get()->pluck('data.*.throughput')->flatten();
+        $timestamps = $query->get()->pluck('data.*.created_at')->flatten();
+
+        return response()->json([
+            'data' => $data,
+            'timestamps' => $timestamps->map(fn($timestamp) => $timestamp->format('d M')),
+        ]);
+    }
+
+
+
 
     public function store(Request $request)
     {
