@@ -14,6 +14,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     @vite('resources/css/app.css')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body class="flex flex-col h-screen" style="background-color: #f3f4f6;">

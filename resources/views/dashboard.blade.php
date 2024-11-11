@@ -10,7 +10,7 @@
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
-    <meta name="csrf-token" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @vite('resources/css/app.css')
 
     <style>
