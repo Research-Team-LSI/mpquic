@@ -328,7 +328,10 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('/throughput-data')
+            const filter = "{{ $filter }}"; 
+            console.log(filter);
+            
+            fetch(`/throughput-data/${filter}`)
                 .then(response => response.json())
                 .then(apiData => {
                     // const formattedTimestamps = apiData.timestamps.map(timestamp => {

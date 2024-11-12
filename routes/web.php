@@ -37,6 +37,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('http', [AlatController::class, 'http'])->name('http');
     Route::get('mpquic', [AlatController::class, 'mpquic'])->name('mpquic');
     Route::get('/throughput-data', [AlatController::class, 'getThroughputData']);
+    Route::get('/throughput-data-mpquic', [AlatController::class, 'getThroughputDatampquic']);
+    Route::get('/throughput-data/{id}', [AlatController::class, 'getThroughputDatafilter'])->name('throughtputhttp');
+    Route::get('/throughput-data-mpquic/{id}', [AlatController::class, 'getThroughputDatampquicfilter'])->name('throughputmpquic');
+    Route::get('httpfilter/{id}', [AlatController::class, 'httpfilter'])->name('httpfilter');
+    Route::get('mpquicfilter/{id}', [AlatController::class, 'mpquicfilter'])->name('mpquicfilter');
+
 
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {
         Route::view('detail/1', 'dashboard/detaildashboard1')->name('detail.dashboard1');
@@ -108,9 +114,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/export-http', function () {
         return Excel::download(new HttpExport, 'HttpExport.xlsx');
     })->name('export.http');
-
-
-
 });
 
 require __DIR__ . '/auth.php';
