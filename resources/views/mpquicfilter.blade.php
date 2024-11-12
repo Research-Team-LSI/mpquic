@@ -378,7 +378,10 @@
         // };
 
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('/throughput-data-mpquic')
+            const filter = "{{ $filter }}"; 
+            console.log(filter);
+            
+            fetch(`/throughput-data/${filter}`)
                 .then(response => response.json())
                 .then(apiData => {
                     // const formattedTimestamps = apiData.timestamps.map(timestamp => {

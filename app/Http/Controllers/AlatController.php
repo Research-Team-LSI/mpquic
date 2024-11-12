@@ -127,21 +127,21 @@ class AlatController extends Controller
         } else {
             return response()->json(['error' => 'Invalid filter'], 400);
         }
-    
+
         $query = Alat::with(['data' => function ($query) use ($start, $end) {
             $query->whereBetween('created_at', [$start, $end]);
         }])->where('protocol', 'http');
 
-    $data = $query->get()->pluck('data.*.throughput')->flatten();
-    $timestamps = $query->get()->pluck('data.*.created_at')->flatten();
+        $data = $query->get()->pluck('data.*.throughput')->flatten();
+        $timestamps = $query->get()->pluck('data.*.created_at')->flatten();
 
-    return response()->json([
-        'data' => $data,
-        'timestamps' => $timestamps->map(fn($timestamp) => $timestamp->format('H:i:s')),
-        'start' => $start,
-        'end' => $end,
-    ]);
-}
+        return response()->json([
+            'data' => $data,
+            'timestamps' => $timestamps->map(fn($timestamp) => $timestamp->format('H:i:s')),
+            'start' => $start,
+            'end' => $end,
+        ]);
+    }
 
 
 
@@ -165,20 +165,20 @@ class AlatController extends Controller
         } else {
             return response()->json(['error' => 'Invalid filter'], 400);
         }
-    
+
         $query = Alat::with(['data' => function ($query) use ($start, $end) {
             $query->whereBetween('created_at', [$start, $end]);
         }])->where('protocol', 'mpquic');
 
-    $data = $query->get()->pluck('data.*.throughput')->flatten();
-    $timestamps = $query->get()->pluck('data.*.created_at')->flatten();
+        $data = $query->get()->pluck('data.*.throughput')->flatten();
+        $timestamps = $query->get()->pluck('data.*.created_at')->flatten();
 
-    return response()->json([
-        'data' => $data,
-        'timestamps' => $timestamps->map(fn($timestamp) => $timestamp->format('H:i:s')),
-        'start' => $start,
-        'end' => $end,
-    ]);
+        return response()->json([
+            'data' => $data,
+            'timestamps' => $timestamps->map(fn($timestamp) => $timestamp->format('H:i:s')),
+            'start' => $start,
+            'end' => $end,
+        ]);
     }
 
 
