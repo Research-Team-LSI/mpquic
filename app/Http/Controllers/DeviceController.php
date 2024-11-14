@@ -2,80 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Amonia;
-use App\Models\Dioksida;
 use App\Models\Humidity;
-use App\Models\Metana;
 use App\Models\Temperature;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class DeviceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    // public function dioksida(Request $request)
-    // {
-    //     try {
-    //         $date = Carbon::now();
-    //         $data = Dioksida::create([
-    //             'id_alat' => $request->id_alat,
-    //             'nilai_dioksida' => $request->nilai,
-    //             'created_at' => $date,
-    //         ]);
-
-    //         return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
-    //     } catch (\Throwable $th) {
-    //         return response()->json('Data Gagal Ditambahkan');
-    //     }
-    // }
-
-    // public function amonia(Request $request)
-    // {
-    //     try {
-    //         $date = Carbon::now();
-    //         Amonia::create([
-    //             'id_alat' => $request->id_alat,
-    //             'nilai_amonia' => $request->nilai,
-    //             'created_at' => $date,
-    //         ]);
-
-    //         return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
-    //     } catch (\Throwable $th) {
-    //         return response()->json('Data Gagal Ditambahkan');
-    //     }
-    // }
-
-    // public function metana(Request $request)
-    // {
-    //     try {
-    //         $date = Carbon::now();
-    //         Metana::create([
-    //             'id_alat' => $request->id_alat,
-    //             'nilai_metana' => $request->nilai,
-    //             'created_at' => $date,
-    //         ]);
-
-    //         return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
-    //     } catch (\Throwable $th) {
-    //         return response()->json('Data Gagal Ditambahkan');
-    //     }
-    // }
-
     public function temperature(Request $request)
     {
-        try { 
+        // Validate the incoming request data
+        $request->validate([
+            'id_alat' => 'required|integer',
+            'nilai' => 'required|numeric',
+        ]);
+
+        try {
             $date = Carbon::now();
-            Temperature::create([
+            $data = Temperature::create([
                 'id_alat' => $request->id_alat,
-                'nilai_suhu' => $request->nilai,
+                'nilai_suhu' => $request->nilai, // Make sure this field is provided in the request
                 'created_at' => $date,
             ]);
 
-            return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
+            return response()->json(['message' => 'Data berhasil ditambahkan', 'data' => $data]);
         } catch (\Throwable $th) {
-            return response()->json('Data Gagal Ditambahkan');
+            return response()->json(['message' => 'Data gagal ditambahkan', 'error' => $th->getMessage()], 500);
         }
     }
 
@@ -83,15 +35,15 @@ class DeviceController extends Controller
     {
         try {
             $date = Carbon::now();
-            Humidity::create([
+            $data = Humidity::create([
                 'id_alat' => $request->id_alat,
                 'nilai_humidity' => $request->nilai,
                 'created_at' => $date,
             ]);
 
-            return response()->json(['Data Berhasil Ditambahkan', 'data' => $data]);
+            return response()->json(['message' => 'Data berhasil ditambahkan', 'data' => $data]);
         } catch (\Throwable $th) {
-            return response()->json('Data Gagal Ditambahkan');
+            return response()->json(['message' => 'Data gagal ditambahkan', 'error' => $th->getMessage()], 500);
         }
     }
 }
