@@ -49,7 +49,11 @@ setInterval(writeToExcel, 60000);  // 1 menit
 // Endpoint HTTP untuk menerima data dari ESP32
 app.post('/data', express.json(), (req, res) => {
     const { id_alat, temperature, humidity, kirimdata } = req.body;
-    const datamasuk = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Jakarta' }); // Format waktu lengkap
+    const now = new Date();
+    const datamasuk = now.toLocaleDateString('en-GB', { timeZone: 'Asia/Jakarta' }) + ', ' +
+        now.toLocaleTimeString('en-GB', { timeZone: 'Asia/Jakarta' }) + ':' +
+        String(now.getMilliseconds()).padStart(3, '0');  // Tambahkan milidetik 3 digit
+
 
     // Menyimpan data ke dalam array log dengan waktu lengkap
     dataLog.push({ id_alat, temperature, humidity, kirimdata, datamasuk });
