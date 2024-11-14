@@ -688,7 +688,21 @@
         // Panggilan awal saat halaman dimuat
         fetchLatestHumidity();
     </script>
+    <script>
+        const socket = new WebSocket('ws://localhost:3000');
 
+        socket.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            document.getElementById('latestValueTemperature').textContent = data.temperature + " °C";
+            document.getElementById('latestValueHumidity').textContent = data.humidity + " %";
+            document.getElementById('lastUpdatedHumidity').textContent = "Last updated: " + data.kirimdata;
+            document.getElementById('lastUpdatedTemperature').textContent = "Last updated: " + data.kirimdata;
+        };
+
+        socket.onopen = function() {
+            console.log('Connected to WebSocket server');
+        };
+    </script>
 
 
 

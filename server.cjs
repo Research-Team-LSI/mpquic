@@ -18,9 +18,11 @@ const worksheet = workbook.addWorksheet('Data Log');
 
 // Menambahkan header di worksheet
 worksheet.columns = [
-    { header: 'Timestamp', key: 'timestamp', width: 20 },
+    { header: 'IdAlat', key: 'id_alat', width: 20 },
     { header: 'Temperature', key: 'temperature', width: 15 },
-    { header: 'Humidity', key: 'humidity', width: 15 }
+    { header: 'Humidity', key: 'humidity', width: 15 },
+    { header: 'KirimData', key: 'kirimdata', width: 20 },
+    { header: 'DataMasuk', key: 'datamasuk', width: 20 },
 ];
 
 // Fungsi untuk menulis data ke file Excel setiap 10 menit
@@ -46,16 +48,16 @@ setInterval(writeToExcel, 60000);  // 1 menit
 
 // Endpoint HTTP untuk menerima data dari ESP32
 app.post('/data', express.json(), (req, res) => {
-    const { temperature, humidity } = req.body;
-    const timestamp = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Jakarta' }); // Format waktu lengkap
+    const { id_alat, temperature, humidity, kirimdata } = req.body;
+    const datamasuk = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Jakarta' }); // Format waktu lengkap
 
     // Menyimpan data ke dalam array log dengan waktu lengkap
-    dataLog.push({ timestamp, temperature, humidity });
+    dataLog.push({ id_alat, temperature, humidity, kirimdata, datamasuk });
 
     // Kirim data ke semua klien WebSocket
     wss.clients.forEach((client) => {
         if (client.readyState === WebSocket.OPEN) {
-            client.send(JSON.stringify({ temperature, humidity }));
+            client.send(JSON.stringify({ id_alat, temperature, humidity, kirimdata }));
         }
     });
 
