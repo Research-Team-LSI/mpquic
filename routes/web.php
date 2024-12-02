@@ -36,12 +36,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('dashboard', [AlatController::class, 'store'])->name('alat.store');
     Route::get('http', [AlatController::class, 'http'])->name('http');
     Route::get('mpquic', [AlatController::class, 'mpquic'])->name('mpquic');
+    Route::get('httprealtime', [AlatController::class, 'httprealtime'])->name('httprealtime');
+    Route::get('mpquicrealtime', [AlatController::class, 'mpquicrealtime'])->name('mpquicrealtime');
     Route::get('/throughput-data', [AlatController::class, 'getThroughputData']);
     Route::get('/throughput-data-mpquic', [AlatController::class, 'getThroughputDatampquic']);
     Route::get('/throughput-data/{id}', [AlatController::class, 'getThroughputDatafilter'])->name('throughtputhttp');
     Route::get('/throughput-data-mpquic/{id}', [AlatController::class, 'getThroughputDatampquicfilter'])->name('throughputmpquic');
     Route::get('httpfilter/{id}', [AlatController::class, 'httpfilter'])->name('httpfilter');
     Route::get('mpquicfilter/{id}', [AlatController::class, 'mpquicfilter'])->name('mpquicfilter');
+    Route::get('httpfilterrealtime/{id}', [AlatController::class, 'httpfilterrealtime'])->name('httpfilterrealtime');
+    Route::get('mpquicfilterrealtime/{id}', [AlatController::class, 'mpquicfilterrealtime'])->name('mpquicfilterrealtime');
 
 
     Route::controller(RiwayatController::class)->prefix('/dashboard')->group(function () {

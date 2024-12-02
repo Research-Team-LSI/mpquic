@@ -120,12 +120,12 @@
                                                     </div>
                                                 </h5>
                                                 <?php
-                                                $lastData = $alat->last()->data->last();
-                                                $kecepatan = $lastData ? $lastData->throughput : 'N/A';
+                                                // $lastData = $alat->last()->data->last();
+                                                // $kecepatan = $lastData ? $lastData->throughput : 'N/A';
                                                 ?>
                                                 <p
                                                     class="text-gray-900 dark:text-white text-2xl leading-none font-bold">
-                                                    {{ $kecepatan }} bps
+                                                    {{-- {{ $kecepatan }} bps --}}
                                                 </p>
                                             </div>
                                         </div>
@@ -179,20 +179,20 @@
                                                 class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                                     aria-labelledby="dropdownDefaultButton">
-                                                    <li><a href="{{ route('httpfilter', 'yesterday') }}"
+                                                    <li><a href="{{ route('httpfilterrealtime', 'yesterday') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Yesterday</a>
                                                     </li>
-                                                    <li><a href="{{ route('http') }}"
+                                                    <li><a href="{{ route('httprealtime') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Today</a>
                                                     </li>
-                                                    <li><a href="{{ route('httpfilter', 'week') }}"
+                                                    <li><a href="{{ route('httpfilterrealtime', 'week') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
                                                             7 days</a></li>
-                                                    <li><a href="{{ route('httpfilter', 'month') }}"
+                                                    <li><a href="{{ route('httpfilterrealtime', 'month') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
                                                             30
                                                             days</a></li>
-                                                    <li><a href="{{ route('httpfilter', '3_months') }}"
+                                                    <li><a href="{{ route('httpfilterrealtime', '3_months') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
                                                             90
                                                             days</a></li>
@@ -328,7 +328,10 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('/throughput-data')
+            const filter = "{{ $filter }}"; 
+            console.log(filter);
+            
+            fetch(`/throughput-data/${filter}`)
                 .then(response => response.json())
                 .then(apiData => {
                     // const formattedTimestamps = apiData.timestamps.map(timestamp => {

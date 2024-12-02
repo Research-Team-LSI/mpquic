@@ -22,6 +22,16 @@ class AlatController extends Controller
         $alat = Alat::where('protocol', 'mpquic')->paginate(5);
         return view('mpquic', compact('alat'));
     }
+    public function httprealtime()
+    {
+        $alat = Alat::where('protocol', 'httprealtime')->paginate(5);
+        return view('httprealtime', compact('alat'));
+    }
+    public function mpquicrealtime()
+    {
+        $alat = Alat::where('protocol', 'mpquicrealtime')->paginate(5);
+        return view('mpquicrealtime', compact('alat'));
+    }
     public function httpfilter($id)
     {
         $alat = Alat::where('protocol', 'http')->paginate(5);
@@ -33,6 +43,18 @@ class AlatController extends Controller
         $alat = Alat::where('protocol', 'mpquic')->paginate(5);
         $filter = $id;
         return view('mpquicfilter', compact('alat', 'filter'));
+    }
+    public function httpfilterrealtime($id)
+    {
+        $alat = Alat::where('protocol', 'httprealtime')->paginate(5);
+        $filter = $id;
+        return view('httpfilterrealtime', compact('alat', 'filter'));
+    }
+    public function mpquicfilterrealtime($id)
+    {
+        $alat = Alat::where('protocol', 'mpquicrealtime')->paginate(5);
+        $filter = $id;
+        return view('mpquicfilterrealtime', compact('alat', 'filter'));
     }
     // public function getThroughputData()
     // {

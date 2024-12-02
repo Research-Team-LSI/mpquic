@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTTP</title>
+    <title>HTTP Realtime</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Include Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -54,7 +54,7 @@
                 <div class="gap-4">
                     <div class="bg-white shadow-lg rounded-lg mb-4">
                         <div class="flex justify-between items-center px-4 py-3 border-b border-gray-200 bg-gray-50">
-                            <h6 class="m-0 font-semibold text-gray-700">HTTP</h6>
+                            <h6 class="m-0 font-semibold text-gray-700">HTTP Realtime</h6>
 
                             <a href="{{ route('export.http') }}" id="export-btn" style="background-color: #001D3D"
                                 class="py-1 px-3 text-body font-semibold text-white rounded-md flex items-center space-x-2">
@@ -120,55 +120,15 @@
                                                     </div>
                                                 </h5>
                                                 <?php
-                                                $lastData = $alat->last()->data->last();
-                                                $kecepatan = $lastData ? $lastData->throughput : 'N/A';
+                                                // $lastData = $alat->last()->data->last();
+                                                // $kecepatan = $lastData ? $lastData->throughput : 'N/A';
                                                 ?>
                                                 <p
                                                     class="text-gray-900 dark:text-white text-2xl leading-none font-bold">
-                                                    {{ $kecepatan }} bps
+                                                    {{-- {{ $kecepatan }} bps --}}
                                                 </p>
                                             </div>
                                         </div>
-                                        {{-- <div>
-                                            <button id="dropdownDefaultButton" data-dropdown-toggle="lastDaysdropdown"
-                                                data-dropdown-placement="bottom" type="button"
-                                                class="px-3 py-2 inline-flex items-center text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Last
-                                                week <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 10 6">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                                                </svg></button>
-                                            <div id="lastDaysdropdown"
-                                                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                                                    aria-labelledby="dropdownDefaultButton">
-                                                    <li>
-                                                        <a href="#"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Yesterday</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Today</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                                            7 days</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                                            30 days</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                                            90 days</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div> --}}
                                         <div>
                                             <button id="dropdownDefaultButton" data-dropdown-toggle="lastDaysdropdown"
                                                 data-dropdown-placement="bottom" type="button"
@@ -179,23 +139,23 @@
                                                 class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                                     aria-labelledby="dropdownDefaultButton">
-                                                    <li><a href="{{ route('httpfilter', 'yesterday') }}"
+                                                    <li><a href="{{ route('httpfilterrealtime', 'yesterday') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Yesterday</a>
                                                     </li>
-                                                    <li><a href="{{ route('http') }}"
+                                                    <li><a href="{{ route('httprealtime') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Today</a>
                                                     </li>
-                                                    <li><a href="{{ route('httpfilter', 'week') }}"
+                                                    <li><a href="{{ route('httpfilterrealtime', 'week') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                                            7 days</a></li>
-                                                    <li><a href="{{ route('httpfilter', 'month') }}"
+                                                            7 days</a>
+                                                    </li>
+                                                    <li><a href="{{ route('httpfilterrealtime', 'month') }}"
+                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last 30 days</a>
+                                                    </li>
+                                                    <li><a href="{{ route('httpfilterrealtime', '3_months') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                                            30
-                                                            days</a></li>
-                                                    <li><a href="{{ route('httpfilter', '3_months') }}"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                                            90
-                                                            days</a></li>
+                                                            90 days</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>

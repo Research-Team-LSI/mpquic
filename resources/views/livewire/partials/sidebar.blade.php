@@ -81,13 +81,13 @@
                 </a>
                 <ul id="dropdown-analisis1" class="hidden">
                     <li>
-                        <a href="{{ route('http') }}"
+                        <a href="{{ route('httprealtime') }}"
                             class="flex items-center block mx-2 py-1 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
                             Http
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('mpquic') }}"
+                        <a href="{{ route('mpquicrealtime') }}"
                             class="flex items-center block mx-2 py-1 text-white text-body hover:text-blue-950 hover:bg-gray-100 rounded-lg px-3 mb-3 transition duration-200">
                             MP QUIC
                         </a>
