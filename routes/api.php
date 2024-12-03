@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\AlatsController;
+use App\Http\Controllers\Api\HttpController;
 use App\Http\Controllers\Api\MobileController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\RoundRobinController;
@@ -23,7 +25,10 @@ Route::controller(DeviceController::class)->prefix('/device')->group(function ()
 Route::get('/test', function () {
     return response()->json(['message' => 'API bekerja!']);
 });
-Route::get('/round-robin', [RoundRobinController::class, 'roundRobin']);
+
+Route::get('/round-robin', [HttpController::class, 'index']);
+
+// Route::get('/round-robin', [RoundRobinController::class, 'roundRobin']);
 
 // Route::post('/roundrobin', [RoundRobinPyton::class, 'calculate']);
 Route::get('/fetch-round-robin', [RoundRobinPytonController::class, 'fetchData']);
@@ -43,3 +48,5 @@ Route::get('/latest-humidity', function () {
 
     return response()->json($latestHumidity);
 });
+// ini terbaru api databasenya
+Route::get('/data', [AlatsController::class, 'index']);
