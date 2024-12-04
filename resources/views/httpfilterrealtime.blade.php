@@ -233,20 +233,21 @@
                                         @foreach ($alat as $item)
                                             <tr
                                                 class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                <th scope="row"
-                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                <th scope="row" class="px-6 py-4 align-top font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     {{ $item->id_alat }}
                                                 </th>
-                                                <td class="px-6 py-4">{{ $item->protocol }}</td>
-                                                <td class="px-6 py-4">{{ $item->microcontroller }}</td>
-                                                <td class="px-6 py-4">{{ $item->mac_address }}</td>
-                                                <td class="px-6 py-4">{{ $item->ip_address }}</td>
-                                                <td class="px-6 py-4">
+                                                <td class="px-6 py-4 align-top">{{ $item->protocol }}</td>
+                                                <td class="px-6 py-4 align-top">{{ $item->microcontroller }}</td>
+                                                <td class="px-6 py-4 align-top">{{ $item->mac_address }}</td>
+                                                <td class="px-6 py-4 align-top">{{ $item->ip_address }}</td>
+                        
+                                                <!-- Kolom 6-7 tetap di tengah -->
+                                                <td class="px-6 py-4 text-left">
                                                     @foreach ($item->data as $data)
                                                         <div>{{ $data->throughput }}</div>
                                                     @endforeach
                                                 </td>
-                                                <td class="px-6 py-4">
+                                                <td class="px-6 py-4 text-left">
                                                     @foreach ($item->data as $data)
                                                         <div>{{ $data->latency }}</div>
                                                     @endforeach
