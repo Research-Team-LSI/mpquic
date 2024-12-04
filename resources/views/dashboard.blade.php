@@ -313,11 +313,6 @@
                             <div class="bg-white shadow-lg rounded-lg mb-4">
                                 <div class="px-8 py-8">
                                     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-
-
-
-
-
                                         {{-- tabel --}}
                                         <table
                                             class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
