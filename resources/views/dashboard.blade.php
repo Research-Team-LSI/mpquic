@@ -192,9 +192,14 @@
                                                         <div data-popper-arrow></div>
                                                     </div>
                                                 </h5>
+                                                <?php
+                                                $lastData = $alat->where('protocol', 'http')->last()?->data->last();
+                                                $kecepatan = $lastData ? $lastData->throughput : 'N/A';
+                                                ?>
                                                 <p
                                                     class="text-gray-900 dark:text-white text-base leading-none font-semibold">
-                                                    1000 bps</p>
+                                                    {{ $kecepatan }} bps
+                                                </p>
                                             </div>
                                             <div>
                                                 <h5
@@ -241,12 +246,18 @@
                                                         <div data-popper-arrow></div>
                                                     </div>
                                                 </h5>
+                                                <?php
+                                                $lastData = $alat->where('protocol', 'mpquic')->last()?->data->last();
+                                                $kecepatan = $lastData ? $lastData->throughput : 'N/A';
+                                                ?>
                                                 <p
                                                     class="text-gray-900 dark:text-white text-base leading-none font-semibold">
-                                                    1000000 bps</p>
+                                                    {{ $kecepatan }} bps
+                                                </p>
+
                                             </div>
                                         </div>
-                                        <div>
+                                        {{-- <div>
                                             <button id="dropdownDefaultButton" data-dropdown-toggle="lastDaysdropdown"
                                                 data-dropdown-placement="bottom" type="button"
                                                 class="px-3 py-2 inline-flex items-center text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Last
@@ -285,26 +296,9 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                     <div id="line-chart"></div>
-                                    {{-- <div
-                                        class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between mt-2.5">
-                                        <div class="pt-5">
-                                            <a href="#"
-                                                class="px-5 py-2.5 text-sm font-medium text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                                <svg class="w-3.5 h-3.5 text-white me-2 rtl:rotate-180"
-                                                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                    fill="currentColor" viewBox="0 0 16 20">
-                                                    <path
-                                                        d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2Zm-3 15H4.828a1 1 0 0 1 0-2h6.238a1 1 0 0 1 0 2Zm0-4H4.828a1 1 0 0 1 0-2h6.238a1 1 0 1 1 0 2Z" />
-                                                    <path
-                                                        d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.98 2.98 0 0 0 .13 5H5Z" />
-                                                </svg>
-                                                View full report
-                                            </a>
-                                        </div>
-                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -333,145 +327,37 @@
                                                 @foreach ($alat as $item)
                                                     <tr
                                                         class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                        <th scope="row" class="px-6 py-4 align-top font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                        <th scope="row"
+                                                            class="px-6 py-4 align-top font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                             {{ $item->id_alat }}
                                                         </th>
                                                         <td class="px-6 py-4 align-top">{{ $item->protocol }}</td>
-                                                        <td class="px-6 py-4 align-top">{{ $item->microcontroller }}</td>
+                                                        <td class="px-6 py-4 align-top">{{ $item->microcontroller }}
+                                                        </td>
                                                         <td class="px-6 py-4 align-top">{{ $item->mac_address }}</td>
                                                         <td class="px-6 py-4 align-top">{{ $item->ip_address }}</td>
-                                
+
                                                         <!-- Kolom 6-7 tetap di tengah -->
                                                         <td class="px-6 py-4 text-left">
-                                                            @foreach ($item->data as $data)
+                                                            {{-- @foreach ($item->data as $data)
                                                                 <div>{{ $data->throughput }}</div>
-                                                            @endforeach
+                                                            @endforeach --}}
+                                                            @if ($item->data->isNotEmpty())
+                                                                {{ $item->data->last()->throughput }}
+                                                            @endif
                                                         </td>
                                                         <td class="px-6 py-4 text-left">
-                                                            @foreach ($item->data as $data)
+                                                            {{-- @foreach ($item->data as $data)
                                                                 <div>{{ $data->latency }}</div>
-                                                            @endforeach
+                                                            @endforeach --}}
+                                                            @if ($item->data->isNotEmpty())
+                                                                {{ $item->data->last()->latency }}
+                                                            @endif
                                                         </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
                                         </table>
-
-
-
-                                        {{-- <nav class="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4 pb-4 ml-8 mr-5"
-                                            aria-label="Table navigation">
-                                            <span
-                                                class="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing
-                                                <span class="font-semibold text-gray-900 dark:text-white">1-10</span> of
-                                                <span class="font-semibold text-gray-900 dark:text-white">1000</span></span>
-                                            <ul class="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
-                                                <li>
-                                                    <a href="#"
-                                                        class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#" aria-current="page"
-                                                        class="flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
-                                                </li>
-                                            </ul>
-                                        </nav> --}}
-
-                                        {{-- <div id="crud-modal" tabindex="-1" aria-hidden="true"
-                                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                                            <div class="relative p-4 w-full max-w-md max-h-full">
-                                                <!-- Modal content -->
-                                                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                                                    <!-- Modal header -->
-                                                    <div
-                                                        class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-                                                        <h3
-                                                            class="text-lg font-semibold text-gray-900 dark:text-white">
-                                                            Tambah Microcontroller
-                                                        </h3>
-                                                        <button type="button"
-                                                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                                            data-modal-toggle="crud-modal">
-                                                            <svg class="w-3 h-3" aria-hidden="true"
-                                                                xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                                viewBox="0 0 14 14">
-                                                                <path stroke="currentColor" stroke-linecap="round"
-                                                                    stroke-linejoin="round" stroke-width="2"
-                                                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                                            </svg>
-                                                            <span class="sr-only">Close modal</span>
-                                                        </button>
-                                                    </div>
-                                                    <!-- Modal body -->
-                                                    <form class="p-4 md:p-5">
-                                                        <div class="grid gap-4 mb-4 grid-cols-2">
-                                                            <div class="col-span-2">
-                                                                <label for="idmicrocontroller"
-                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Id
-                                                                    Microcontroller</label>
-                                                                <input type="text" name="idmicrocontroller"
-                                                                    id="idmicrocontroller"
-                                                                    class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                                    placeholder="Microcontroller" required=""
-                                                                    value="106" readonly>
-                                                                <label for="name"
-                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Jenis
-                                                                    Microcontroller</label>
-                                                                <select id="name"
-                                                                    class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                                                    <option selected="microcontroller">Pilih
-                                                                        Microcontroller
-                                                                    </option>
-                                                                    <option value="esp32">ESP32</option>
-                                                                    </option>
-                                                                    <option value="esp8266">ESP8266</option>
-                                                                    <option value="Rpi">Raspberry Pi</option>
-                                                                </select>
-                                                                <label for="macaddress"
-                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                                                    Mac Address</label>
-                                                                <input type="text" name="macaddress"
-                                                                    id="macaddress"
-                                                                    class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                                    placeholder="contoh: 00-B0-D0-63-C2-26"
-                                                                    required="">
-                                                                <label for="ipaddress"
-                                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                                                    IP Address</label>
-                                                                <input type="text" name="ipaddress" id="ipaddress"
-                                                                    class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                                    placeholder="contoh: 192.164.001.001"
-                                                                    required="">
-                                                            </div>
-                                                        </div>
-                                                        <button type="submit"
-                                                            class="text-white inline-flex items-center bg-blue-950 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                                            Simpan
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -564,125 +450,149 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
-        const options1 = {
-            chart: {
-                height: "100%",
-                maxWidth: "100%",
-                type: "line",
-                fontFamily: "Inter, sans-serif",
-                dropShadow: {
-                    enabled: false,
-                },
-                toolbar: {
-                    show: false,
-                },
-            },
-            tooltip: {
-                enabled: true,
-                x: {
-                    show: false,
-                },
-            },
-            dataLabels: {
-                enabled: false,
-            },
-            stroke: {
-                width: 6,
-            },
-            grid: {
-                show: true,
-                strokeDashArray: 4,
-                padding: {
-                    left: 2,
-                    right: 2,
-                    top: -26
-                },
-            },
-            series: [{
-                    name: "HTTP",
-                    data: [6500, 6418, 6456, 6526, 6356, 6456],
-                    color: "#001D3D",
-                },
-                {
-                    name: "MP QUIC",
-                    data: [6456, 6356, 6526, 6332, 6418, 6500],
-                    color: "#FCA311",
-                },
-            ],
-            legend: {
-                show: false
-            },
-            stroke: {
-                curve: 'smooth'
-            },
-            xaxis: {
-                categories: ['01 Feb', '02 Feb', '03 Feb', '04 Feb', '05 Feb', '06 Feb', '07 Feb'],
-                labels: {
-                    show: true,
-                    style: {
+        document.addEventListener('DOMContentLoaded', function() {
+            Promise.all([
+                fetch('/throughput-data').then((response) => response.json()),
+                fetch('/throughput-data-mpquic').then((response) => response.json()),
+            ]).then(([httpData, mpquicData]) => {
+                // fetch('/throughput-data')
+                //     .then(response => response.json())
+                //     .then(apiData => {
+                // const formattedTimestamps = apiData.timestamps.map(timestamp => {
+                //     return new Date(timestamp).toLocaleTimeString([], {
+                //         hour: '2-digit',
+                //         minute: '2-digit',
+                //         second: '2-digit'
+                //     });
+                // });
+                const options1 = {
+                    chart: {
+                        height: "100%",
+                        maxWidth: "100%",
+                        type: "line",
                         fontFamily: "Inter, sans-serif",
-                        cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
-                    }
-                },
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false,
-                },
-            },
-            yaxis: {
-                show: false,
-            },
-        }
+                        dropShadow: {
+                            enabled: false,
+                        },
+                        toolbar: {
+                            show: false,
+                        },
+                    },
+                    tooltip: {
+                        enabled: true,
+                        x: {
+                            show: false,
+                        },
+                    },
+                    dataLabels: {
+                        enabled: false,
+                    },
+                    stroke: {
+                        width: 6,
+                    },
+                    grid: {
+                        show: true,
+                        strokeDashArray: 4,
+                        padding: {
+                            left: 2,
+                            right: 2,
+                            top: -26
+                        },
+                    },
+                    // series: [{
+                    //     name: "Throughput",
+                    //     data: apiData.data,
+                    //     color: "#FCA311",
+                    // }],
+                    series: [{
+                            name: "HTTP Throughput",
+                            data: httpData.data,
+                            color: "#FCA311",
+                        },
+                        {
+                            name: "MPQUIC Throughput",
+                            data: mpquicData.data,
+                            color: "#000000", // Warna hitam untuk MPQUIC
+                        },
+                    ],
+                    legend: {
+                        show: true
+                    },
+                    stroke: {
+                        curve: 'smooth'
+                    },
+                    xaxis: {
+                        categories: httpData.timestamps, // Asumsi timestamps sama untuk kedua data
+                        labels: {
+                            show: true,
+                            rotate: -45,
+                            style: {
+                                fontFamily: "Inter, sans-serif",
+                                cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400',
+                            },
+                        },
+                        axisBorder: {
+                            show: false,
+                        },
+                        axisTicks: {
+                            show: false,
+                        },
+                    },
+                    yaxis: {
+                        show: false,
+                    },
+                };
 
-        if (document.getElementById("line-chart") && typeof ApexCharts !== 'undefined') {
-            const chart1 = new ApexCharts(document.getElementById("line-chart"), options1);
-            chart1.render();
-        };
+                if (document.getElementById("line-chart") && typeof ApexCharts !== 'undefined') {
+                    const chart1 = new ApexCharts(document.getElementById("line-chart"), options1);
+                    chart1.render();
+                };
+            });
+            async function fetchLatestTemperature() {
+                try {
+                    const response = await fetch('/api/latest-temperature');
+                    const data = await response.json();
 
-
-        async function fetchLatestTemperature() {
-            try {
-                const response = await fetch('/api/latest-temperature');
-                const data = await response.json();
-
-                // Update elemen card dengan data yang diambil
-                document.getElementById('latestValueTemperature').innerText = data.nilai_temperature + " °C";
-                document.getElementById('lastUpdatedTemperature').innerText = "Last updated: " + new Date(data
-                    .updated_at).toLocaleString();
-            } catch (error) {
-                console.error('Error fetching temperature:', error);
+                    // Update elemen card dengan data yang diambil
+                    document.getElementById('latestValueTemperature').innerText = data.nilai_temperature +
+                        " °C";
+                    document.getElementById('lastUpdatedTemperature').innerText = "Last updated: " + new Date(
+                        data
+                        .updated_at).toLocaleString();
+                } catch (error) {
+                    console.error('Error fetching temperature:', error);
+                }
             }
-        }
 
-        // Panggil fungsi setiap beberapa detik untuk update otomatis
-        setInterval(fetchLatestTemperature, 10000); // Update setiap 10 detik
+            // Panggil fungsi setiap beberapa detik untuk update otomatis
+            setInterval(fetchLatestTemperature, 10000); // Update setiap 10 detik
 
-        // Panggilan awal saat halaman dimuat
-        fetchLatestTemperature();
-
+            // Panggilan awal saat halaman dimuat
+            fetchLatestTemperature();
 
 
-        async function fetchLatestHumidity() {
-            try {
-                const response = await fetch('/api/latest-humidity');
-                const data = await response.json();
 
-                // Update elemen card dengan data yang diambil
-                document.getElementById('latestValueHumidity').innerText = data.nilai_humidity + " %";
-                document.getElementById('lastUpdatedHumidity').innerText = "Last updated: " + new Date(data.updated_at)
-                    .toLocaleString();
-            } catch (error) {
-                console.error('Error fetching humidity:', error);
+            async function fetchLatestHumidity() {
+                try {
+                    const response = await fetch('/api/latest-humidity');
+                    const data = await response.json();
+
+                    // Update elemen card dengan data yang diambil
+                    document.getElementById('latestValueHumidity').innerText = data.nilai_humidity + " %";
+                    document.getElementById('lastUpdatedHumidity').innerText = "Last updated: " + new Date(data
+                            .updated_at)
+                        .toLocaleString();
+                } catch (error) {
+                    console.error('Error fetching humidity:', error);
+                }
             }
-        }
 
-        // Panggil fungsi setiap beberapa detik untuk update otomatis
-        setInterval(fetchLatestHumidity, 10000); // Update setiap 10 detik
+            // Panggil fungsi setiap beberapa detik untuk update otomatis
+            setInterval(fetchLatestHumidity, 10000); // Update setiap 10 detik
 
-        // Panggilan awal saat halaman dimuat
-        fetchLatestHumidity();
+            // Panggilan awal saat halaman dimuat
+            fetchLatestHumidity();
+        });
     </script>
     <script>
         const socket = new WebSocket('ws://localhost:3000');
@@ -699,10 +609,6 @@
             console.log('Connected to WebSocket server');
         };
     </script>
-
-
-
-
 </body>
 
 </html>

@@ -57,14 +57,15 @@
                             <h6 class="m-0 font-semibold text-gray-700">Multipath QUIC</h6>
 
                             <a href="{{ route('export.mpquic') }}" id="export-btn" style="background-color: #001D3D"
-                            class="py-1 px-3 text-body font-semibold text-white rounded-md flex items-center space-x-2">
-                             <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true"
-                                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
-                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                       d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
-                             </svg>
-                             <span>Export</span>
-                         </a>
+                                class="py-1 px-3 text-body font-semibold text-white rounded-md flex items-center space-x-2">
+                                <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3" />
+                                </svg>
+                                <span>Export</span>
+                            </a>
 
 
                         </div>
@@ -147,25 +148,25 @@
                                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                                     aria-labelledby="dropdownDefaultButton">
                                                     <li>
-                                                        <a href="{{ route('mpquicfilter' , 'yesterday')}}"
+                                                        <a href="{{ route('mpquicfilter', 'yesterday') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Yesterday</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ route('mpquic')}}"
+                                                        <a href="{{ route('mpquic') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Today</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ route('mpquicfilter' , 'week')}}"
+                                                        <a href="{{ route('mpquicfilter', 'week') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
                                                             7 days</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ route('mpquicfilter' , 'month')}}"
+                                                        <a href="{{ route('mpquicfilter', 'month') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
                                                             30 days</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ route('mpquicfilter' , '3_months')}}"
+                                                        <a href="{{ route('mpquicfilter', '3_months') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
                                                             90 days</a>
                                                     </li>
@@ -205,14 +206,15 @@
                                         @foreach ($alat as $item)
                                             <tr
                                                 class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                <th scope="row" class="px-6 py-4 align-top font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                <th scope="row"
+                                                    class="px-6 py-4 align-top font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     {{ $item->id_alat }}
                                                 </th>
                                                 <td class="px-6 py-4 align-top">{{ $item->protocol }}</td>
                                                 <td class="px-6 py-4 align-top">{{ $item->microcontroller }}</td>
                                                 <td class="px-6 py-4 align-top">{{ $item->mac_address }}</td>
                                                 <td class="px-6 py-4 align-top">{{ $item->ip_address }}</td>
-                        
+
                                                 <!-- Kolom 6-7 tetap di tengah -->
                                                 <td class="px-6 py-4 text-left">
                                                     @foreach ($item->data as $data)

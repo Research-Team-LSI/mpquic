@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AlatsController;
 use App\Http\Controllers\Api\HttpController;
 use App\Http\Controllers\Api\MobileController;
+use App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\RoundRobinController;
 use App\Http\Controllers\RoundRobinPytonController;
@@ -16,9 +17,6 @@ Route::get('/user', function (Request $request) {
 Route::get('gas/{id}', [MobileController::class, 'index']);
 
 Route::controller(DeviceController::class)->prefix('/device')->group(function () {
-    Route::post('/amonia', [DeviceController::class, 'amonia']);
-    Route::post('/dioksida', [DeviceController::class, 'dioksida']);
-    Route::post('/metana', [DeviceController::class, 'metana']);
     Route::post('/temperature', [DeviceController::class, 'temperature']);
     Route::post('/humidity', [DeviceController::class, 'humidity']);
 });
@@ -50,3 +48,5 @@ Route::get('/latest-humidity', function () {
 });
 // ini terbaru api databasenya
 Route::get('/data', [AlatsController::class, 'index']);
+
+Route::get('/data-by-id-alat', [DatabaseController::class, 'getDataByIdAlat']);

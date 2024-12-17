@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alat;
+use App\Models\Data;
 use App\Models\Humidity;
 use App\Models\Temperature;
 use Illuminate\Http\Request;
@@ -95,5 +97,20 @@ class ChartsController extends Controller
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
+    }
+    public function getThroughputData()
+    {
+        $data = Alat::whereHas('alat', function ($query) {
+            $query->where('protocol', 'http');
+        })->get();
+
+        $response = [
+            'timestamps' => $data->pluck('created_at')->map(function ($timestamp) {
+                return $timestamp->format('Y-m-d H:i:s');
+            }),
+            'data' => $data->pluck('throughput'),
+        ];
+
+        return response()->json($response);
     }
 }

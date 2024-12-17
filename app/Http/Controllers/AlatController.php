@@ -12,14 +12,29 @@ class AlatController extends Controller
         $alat = Alat::with('data')->get();
         return view('dashboard', compact('alat'));
     }
+    // public function http()
+    // {
+    //     $alat = Alat::where('protocol', 'http')->paginate(5);
+    //     return view('http', compact('alat'));
+    // }
     public function http()
     {
-        $alat = Alat::where('protocol', 'http')->paginate(5);
+        $alat = Alat::where('protocol', 'http')
+            ->with(['data' => function ($query) {
+                $query->latest()->limit(1); // Ambil hanya data terbaru
+            }])
+            ->paginate(5);
+
         return view('http', compact('alat'));
     }
+
     public function mpquic()
     {
-        $alat = Alat::where('protocol', 'mpquic')->paginate(5);
+        $alat = Alat::where('protocol', 'mpquic')
+            ->with(['data' => function ($query) {
+                $query->latest()->limit(1); // Ambil hanya data terbaru
+            }])
+            ->paginate(5);
         return view('mpquic', compact('alat'));
     }
     public function httprealtime()
@@ -29,7 +44,13 @@ class AlatController extends Controller
     }
     public function mpquicrealtime()
     {
-        $alat = Alat::where('protocol', 'mpquicrealtime')->paginate(5);
+        // $alat = Alat::where('protocol', 'mpquicrealtime')->paginate(5);
+        // return view('mpquicrealtime', compact('alat'));
+        $alat = Alat::where('protocol', 'mpquicrealtime')
+            ->with(['data' => function ($query) {
+                $query->latest()->limit(1); // Ambil hanya data terbaru
+            }])
+            ->paginate(5);
         return view('mpquicrealtime', compact('alat'));
     }
     public function httpfilter($id)

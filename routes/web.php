@@ -77,6 +77,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/data/humidity', 'getHumidityData')->name('data.riwayathumidity');
         Route::post('/data/dioksida', 'getDioksidaData')->name('data.riwayatdioksida');
     });
+
+    Route::get('/throughput-data', [ChartsController::class, 'getThroughputData']);
+
+
+
+
     Route::get('export/ammonia', function (Request $request) {
         $startDate = $request->query('createFrom');
         $endDate = $request->query('createTo');

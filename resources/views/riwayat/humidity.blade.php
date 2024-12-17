@@ -64,7 +64,6 @@
                     <div class="shadow-lg rounded-lg w-96 p-6" style="background-color: #001D3D">
                         <h3 class="text-center text-lg font-normal text-white">Kelembapan Optimal</h3>
                         <p class="text-center text-white pt-2">45% - 55%</p>
-                        <p class="text-center text-white font-thin pt-2">%</p>
                     </div>
                 </div>
             </main>

@@ -21,7 +21,7 @@ class DeviceController extends Controller
             $date = Carbon::now();
             $data = Temperature::create([
                 'id_alat' => $request->id_alat,
-                'nilai_suhu' => $request->nilai, // Make sure this field is provided in the request
+                'nilai_temperature' => $request->nilai, // Make sure this field is provided in the request
                 'created_at' => $date,
             ]);
 

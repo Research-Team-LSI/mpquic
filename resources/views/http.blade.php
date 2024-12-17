@@ -129,46 +129,6 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        {{-- <div>
-                                            <button id="dropdownDefaultButton" data-dropdown-toggle="lastDaysdropdown"
-                                                data-dropdown-placement="bottom" type="button"
-                                                class="px-3 py-2 inline-flex items-center text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Last
-                                                week <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true"
-                                                    xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    viewBox="0 0 10 6">
-                                                    <path stroke="currentColor" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
-                                                </svg></button>
-                                            <div id="lastDaysdropdown"
-                                                class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
-                                                    aria-labelledby="dropdownDefaultButton">
-                                                    <li>
-                                                        <a href="#"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Yesterday</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Today</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                                            7 days</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                                            30 days</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#"
-                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
-                                                            90 days</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div> --}}
                                         <div>
                                             <button id="dropdownDefaultButton" data-dropdown-toggle="lastDaysdropdown"
                                                 data-dropdown-placement="bottom" type="button"
@@ -233,24 +193,31 @@
                                         @foreach ($alat as $item)
                                             <tr
                                                 class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                <th scope="row" class="px-6 py-4 align-top font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                <th scope="row"
+                                                    class="px-6 py-4 align-top font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     {{ $item->id_alat }}
                                                 </th>
                                                 <td class="px-6 py-4 align-top">{{ $item->protocol }}</td>
                                                 <td class="px-6 py-4 align-top">{{ $item->microcontroller }}</td>
                                                 <td class="px-6 py-4 align-top">{{ $item->mac_address }}</td>
                                                 <td class="px-6 py-4 align-top">{{ $item->ip_address }}</td>
-                        
+
                                                 <!-- Kolom 6-7 tetap di tengah -->
                                                 <td class="px-6 py-4 text-left">
-                                                    @foreach ($item->data as $data)
+                                                    {{-- @foreach ($item->data as $data)
                                                         <div>{{ $data->throughput }}</div>
-                                                    @endforeach
+                                                    @endforeach --}}
+                                                    @if ($item->data->isNotEmpty())
+                                                        {{ $item->data->last()->throughput }}
+                                                    @endif
                                                 </td>
                                                 <td class="px-6 py-4 text-left">
-                                                    @foreach ($item->data as $data)
+                                                    {{-- @foreach ($item->data as $data)
                                                         <div>{{ $data->latency }}</div>
-                                                    @endforeach
+                                                    @endforeach --}}
+                                                    @if ($item->data->isNotEmpty())
+                                                        {{ $item->data->last()->latency }}
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach

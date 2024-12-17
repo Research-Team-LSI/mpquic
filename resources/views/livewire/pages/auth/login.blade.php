@@ -25,7 +25,9 @@ new #[Layout('layouts.guest')] class extends Component {
 };
 ?>
 
-<div class="min-h-screen flex flex-col justify-center items-center pt-6 sm:pt-0" style="background-color: #001D3D; background-image: url('{{ asset('images/login/pattern.png') }}'); background-size: cover; background-repeat: no-repeat; background-position: center;">>
+<div class="min-h-screen flex flex-col justify-center items-center pt-6 sm:pt-0"
+    style="background-color: #001D3D; background-image: url('{{ asset('images/login/pattern.png') }}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+    >
 
     <div class="text-center mb-6">
         <a href="/" wire:navigate>
@@ -96,7 +98,8 @@ new #[Layout('layouts.guest')] class extends Component {
                 <!-- Submit Button -->
                 <div class="flex items-center justify-center">
                     <button type="submit"
-                        class="w-full px-4 py-2 text-white rounded-md hover:bg-lgreen focus:outline-none focus:bg-dgreen" style="background-color: #001D3D">
+                        class="w-full px-4 py-2 text-white rounded-md hover:bg-lgreen focus:outline-none focus:bg-dgreen"
+                        style="background-color: #001D3D">
                         Log in
                     </button>
                 </div>

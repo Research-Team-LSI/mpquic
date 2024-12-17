@@ -28,27 +28,50 @@ class HumidityExport implements FromCollection, ShouldAutoSize, WithHeadings, Wi
     /**
      * @return \Illuminate\Support\Collection
      */
+
     public function collection()
     {
         return Humidity::whereBetween('created_at', [$this->startDate, $this->endDate])
-            ->selectRaw('DATE(created_at) as tanggal, AVG(nilai_humidity) as rata_rata_humidity')
-            ->groupBy('tanggal')
-            ->orderBy('tanggal')
+            ->orderBy('created_at') // Mengurutkan berdasarkan waktu
             ->get();
     }
+
+
+    // public function collection()
+    // {
+    //     return Humidity::whereBetween('created_at', [$this->startDate, $this->endDate])
+    //         ->selectRaw('DATE(created_at) as tanggal, AVG(nilai_humidity) as rata_rata_humidity')
+    //         ->groupBy('tanggal')
+    //         ->orderBy('tanggal')
+    //         ->get();
+    // }
 
     public function headings(): array
     {
         return [
             'No',
-            'Tanggal',
-            'Rata-rata Kelembapan',
+            'ID Alat',
+            'Nilai Humidity',
+            'Tanggal Dibuat',
+            'Tanggal Diperbarui',
         ];
     }
+
+
+    // public function headings(): array
+    // {
+    //     return [
+    //         'No',
+    //         'Tanggal',
+    //         'Rata-rata Kelembapan',
+    //     ];
+    // }
 
     /**
      * @param  mixed  $row
      */
+
+
     public function map($row): array
     {
         static $number = 0;
@@ -56,10 +79,23 @@ class HumidityExport implements FromCollection, ShouldAutoSize, WithHeadings, Wi
 
         return [
             $number,
-            $row->tanggal,
-            $row->rata_rata_humidity,
+            $row->id_alat,          // ID alat
+            $row->nilai_humidity,   // Nilai kelembapan
+            $row->created_at,       // Tanggal dibuat
+            $row->updated_at,       // Tanggal diperbarui
         ];
     }
+    // public function map($row): array
+    // {
+    //     static $number = 0;
+    //     $number++;
+
+    //     return [
+    //         $number,
+    //         $row->tanggal,
+    //         $row->rata_rata_humidity,
+    //     ];
+    // }
 
     /**
      * @return array
@@ -67,7 +103,7 @@ class HumidityExport implements FromCollection, ShouldAutoSize, WithHeadings, Wi
     public function styles(Worksheet $sheet)
     {
         // Apply styles to the header row
-        $sheet->getStyle('A1:C1')->applyFromArray([
+        $sheet->getStyle('A1:E1')->applyFromArray([
             'font' => [
                 'bold' => true,
                 'color' => ['argb' => Color::COLOR_WHITE],
@@ -79,7 +115,7 @@ class HumidityExport implements FromCollection, ShouldAutoSize, WithHeadings, Wi
         ]);
 
         // Apply borders to all cells
-        $sheet->getStyle('A1:C'.($sheet->getHighestRow()))
+        $sheet->getStyle('A1:E' . ($sheet->getHighestRow()))
             ->getBorders()
             ->getAllBorders()
             ->setBorderStyle(Border::BORDER_THIN)

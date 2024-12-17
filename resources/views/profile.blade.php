@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temperature</title>
+    <title>Profil</title>
+    <link href="{{ asset('images/login/logo.png') }}" rel="icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -29,7 +30,7 @@
                         {{ __('Profile') }}
                     </h2>
                 </x-slot>
-            
+
                 <div class="py-12">
                     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
                         <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
@@ -37,13 +38,13 @@
                                 <livewire:profile.update-profile-information-form />
                             </div>
                         </div>
-            
+
                         <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                             <div class="max-w-xl">
                                 <livewire:profile.update-password-form />
                             </div>
                         </div>
-            
+
                         <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                             <div class="max-w-xl">
                                 <livewire:profile.delete-user-form />
@@ -82,4 +83,3 @@
 </body>
 
 </html>
-

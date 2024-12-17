@@ -64,7 +64,7 @@
                     <div class="shadow-lg rounded-lg w-96 p-6" style="background-color: #001D3D">
                         <h3 class="text-center text-lg font-normal text-white">Suhu Optimal</h3>
                         <p class="text-center text-white pt-2">25°C - 35°C</p>
-                        <p class="text-center text-white font-thin pt-2">°C</p>
+
                     </div>
                 </div>
             </main>
@@ -86,7 +86,8 @@
                 var start = $('#daterange').data('daterangepicker').startDate.format('YYYY-MM-DD');
                 var end = $('#daterange').data('daterangepicker').endDate.format('YYYY-MM-DD');
 
-                window.location.href = '{{ route('export.temperature') }}?createFrom=' + start + '&createTo=' +
+                window.location.href = '{{ route('export.temperature') }}?createFrom=' + start +
+                    '&createTo=' +
                     end;
             });
         });

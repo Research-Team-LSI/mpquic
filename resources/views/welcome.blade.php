@@ -31,8 +31,8 @@
             <div class="mx-auto p-4 md:py-8">
                 <div class="flex-1 flex items-center">
                     <div class="text-center mx-auto">
-                        <h1 class="text-h3 font-bold text-white md:text-h2 lg:text-h1">Peningkatan Kualitas Layanan Transmisi Data IoT Menggunakan Optimasi Protokol MP-QUIC </h1>
-                        {{-- <h1 class="text-h3 font-bold text-white md:text-h2 lg:text-h1">Multipath QUIC (MP-QUIC)</h1> --}}
+                        <h1 class="text-h3 font-bold text-white md:text-h2 lg:text-h1">Peningkatan Kualitas Layanan
+                            Transmisi Data IoT Menggunakan Optimasi Protokol MP-QUIC </h1>
                         <p class="text-title2 text-text mb-7">
                             Jember,
                             Jawa

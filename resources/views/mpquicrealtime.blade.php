@@ -57,14 +57,15 @@
                             <h6 class="m-0 font-semibold text-gray-700">Multipath QUIC Realtime</h6>
 
                             <a href="{{ route('export.mpquic') }}" id="export-btn" style="background-color: #001D3D"
-                            class="py-1 px-3 text-body font-semibold text-white rounded-md flex items-center space-x-2">
-                             <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true"
-                                  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
-                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                       d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
-                             </svg>
-                             <span>Export</span>
-                         </a>
+                                class="py-1 px-3 text-body font-semibold text-white rounded-md flex items-center space-x-2">
+                                <svg class="w-4 h-4 text-white dark:text-white" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3" />
+                                </svg>
+                                <span>Export</span>
+                            </a>
 
 
                         </div>
@@ -123,19 +124,19 @@
                                                     class="text-gray-900 dark:text-white text-2xl leading-none font-bold">
                                                     43 Bps</p> --}}
                                                 <?php
-                                                // $lastData = $alat->last()->data->last();
-                                                // $kecepatan = $lastData ? $lastData->throughput : 'N/A';
+                                                $lastData = $alat->last()->data->last();
+                                                $kecepatan = $lastData ? $lastData->throughput : 'N/A';
                                                 ?>
                                                 <p
                                                     class="text-gray-900 dark:text-white text-2xl leading-none font-bold">
-                                                    {{-- {{ $kecepatan }} bps --}}
+                                                    {{ $kecepatan }} bps
                                                 </p>
                                             </div>
                                         </div>
                                         <div>
                                             <button id="dropdownDefaultButton" data-dropdown-toggle="lastDaysdropdown"
                                                 data-dropdown-placement="bottom" type="button"
-                                                class="px-3 py-2 inline-flex items-center text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"> Filter
+                                                class="px-3 py-2 inline-flex items-center text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Filter
                                                 <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true"
                                                     xmlns="http://www.w3.org/2000/svg" fill="none"
                                                     viewBox="0 0 10 6">
@@ -147,25 +148,25 @@
                                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                                     aria-labelledby="dropdownDefaultButton">
                                                     <li>
-                                                        <a href="{{ route('mpquicfilterrealtime' , 'yesterday')}}"
+                                                        <a href="{{ route('mpquicfilterrealtime', 'yesterday') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Yesterday</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ route('mpquicrealtime')}}"
+                                                        <a href="{{ route('mpquicrealtime') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Today</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ route('mpquicfilterrealtime' , 'week')}}"
+                                                        <a href="{{ route('mpquicfilterrealtime', 'week') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
                                                             7 days</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ route('mpquicfilterrealtime' , 'month')}}"
+                                                        <a href="{{ route('mpquicfilterrealtime', 'month') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
                                                             30 days</a>
                                                     </li>
                                                     <li>
-                                                        <a href="{{ route('mpquicfilterrealtime' , '3_months')}}"
+                                                        <a href="{{ route('mpquicfilterrealtime', '3_months') }}"
                                                             class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
                                                             90 days</a>
                                                     </li>
@@ -205,14 +206,15 @@
                                         @foreach ($alat as $item)
                                             <tr
                                                 class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                                                <th scope="row" class="px-6 py-4 align-top font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                                <th scope="row"
+                                                    class="px-6 py-4 align-top font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     {{ $item->id_alat }}
                                                 </th>
                                                 <td class="px-6 py-4 align-top">{{ $item->protocol }}</td>
                                                 <td class="px-6 py-4 align-top">{{ $item->microcontroller }}</td>
                                                 <td class="px-6 py-4 align-top">{{ $item->mac_address }}</td>
                                                 <td class="px-6 py-4 align-top">{{ $item->ip_address }}</td>
-                        
+
                                                 <!-- Kolom 6-7 tetap di tengah -->
                                                 <td class="px-6 py-4 text-left">
                                                     @foreach ($item->data as $data)
@@ -301,83 +303,6 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
-        // const options1 = {
-        //     chart: {
-        //         height: "100%",
-        //         maxWidth: "100%",
-        //         type: "line",
-        //         fontFamily: "Inter, sans-serif",
-        //         dropShadow: {
-        //             enabled: false,
-        //         },
-        //         toolbar: {
-        //             show: false,
-        //         },
-        //     },
-        //     tooltip: {
-        //         enabled: true,
-        //         x: {
-        //             show: false,
-        //         },
-        //     },
-        //     dataLabels: {
-        //         enabled: false,
-        //     },
-        //     stroke: {
-        //         width: 6,
-        //     },
-        //     grid: {
-        //         show: true,
-        //         strokeDashArray: 4,
-        //         padding: {
-        //             left: 2,
-        //             right: 2,
-        //             top: -26
-        //         },
-        //     },
-        //     series: [{
-        //             name: "Humidity",
-        //             data: [6500, 6418, 6456, 6526, 6356, 6456],
-        //             color: "#FCA311",
-        //         },
-        //         //{
-        //         //name: "Temperature",
-        //         //data: [6456, 6356, 6526, 6332, 6418, 6500],
-        //         //color: "#7E3AF2",
-        //         //},
-        //     ],
-        //     legend: {
-        //         show: false
-        //     },
-        //     stroke: {
-        //         curve: 'smooth'
-        //     },
-        //     xaxis: {
-        //         categories: ['01 Feb', '02 Feb', '03 Feb', '04 Feb', '05 Feb', '06 Feb', '07 Feb'],
-        //         labels: {
-        //             show: true,
-        //             style: {
-        //                 fontFamily: "Inter, sans-serif",
-        //                 cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
-        //             }
-        //         },
-        //         axisBorder: {
-        //             show: false,
-        //         },
-        //         axisTicks: {
-        //             show: false,
-        //         },
-        //     },
-        //     yaxis: {
-        //         show: false,
-        //     },
-        // }
-
-        // if (document.getElementById("line-chart") && typeof ApexCharts !== 'undefined') {
-        //     const chart1 = new ApexCharts(document.getElementById("line-chart"), options1);
-        //     chart1.render();
-        // };
-
         document.addEventListener('DOMContentLoaded', function() {
             fetch('/throughput-data-mpquic')
                 .then(response => response.json())
